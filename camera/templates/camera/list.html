@@ -1,7 +1,7 @@
 {% if catalog_list %}
     <table>
     {% for catalog in catalog_list %}
-        <tr><td>{{ catalog }}</td></tr>
+        <tr><td><a href="/camera/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
     {% endfor %}
     </table>
 {% else %}
