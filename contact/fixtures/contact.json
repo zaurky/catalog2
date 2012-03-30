@@ -1,0 +1,8 @@
+[
+  {"model": "contact.contact", "pk": 1, "fields": {"name": "Patricia"}},
+  {"model": "contact.contact", "pk": 2, "fields": {"name": "Mami"}},
+  {"model": "contact.contact", "pk": 3, "fields": {"name": "Maman"}},
+  {"model": "contact.contact", "pk": 4, "fields": {"name": "Papa"}},
+  {"model": "contact.contact", "pk": 5, "fields": {"name": "Marisol"}},
+  {"model": "contact.contact", "pk": 6, "fields": {"name": "Olivier"}}
+]

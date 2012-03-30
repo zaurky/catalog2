@@ -1,0 +1,8 @@
+[
+  {"model": "contact.developer", "pk": 1, "fields": {"name": "Maison", "town": "Lognes", "country": "France"}},
+  {"model": "contact.developer", "pk": 2, "fields": {"name": "Nation", "town": "Paris", "country": "France"}},
+  {"model": "contact.developer", "pk": 3, "fields": {"name": "Photo Express Bay 2", "town": "Lognes", "country": "France"}},
+  {"model": "contact.developer", "pk": 4, "fields": {"name": "Walgreens", "town": "Carolina", "country": "Puerto Rico"}},
+  {"model": "contact.developer", "pk": 5, "fields": {"name": "Sam's Club", "town": "Carolina", "country": "Puerto Rico"}},
+  {"model": "contact.developer", "pk": 6, "fields": {"name": "Bussy", "town": "Bussy", "country": "France"}}
+]
