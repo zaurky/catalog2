@@ -1,0 +1,11 @@
+[
+  {"model": "film.brand", "pk": 1, "fields": {"name": "Kodak"}},
+  {"model": "film.brand", "pk": 2, "fields": {"name": "Fuji"}},
+  {"model": "film.brand", "pk": 3, "fields": {"name": "Agfa"}},
+  {"model": "film.brand", "pk": 4, "fields": {"name": "Ilford"}},
+  {"model": "film.brand", "pk": 5, "fields": {"name": "Foma"}},
+  {"model": "film.brand", "pk": 6, "fields": {"name": "ORWO"}},
+  {"model": "film.brand", "pk": 7, "fields": {"name": "Fnac"}},
+  {"model": "film.brand", "pk": 8, "fields": {"name": "Lomographie"}},
+  {"model": "film.brand", "pk": 9, "fields": {"name": "Solaris"}}
+]

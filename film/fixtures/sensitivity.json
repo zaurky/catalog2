@@ -1,0 +1,11 @@
+[
+  {"model": "film.sensitivity", "pk": 1, "fields": {"iso": "25"}},
+  {"model": "film.sensitivity", "pk": 2, "fields": {"iso": "50"}},
+  {"model": "film.sensitivity", "pk": 3, "fields": {"iso": "100"}},
+  {"model": "film.sensitivity", "pk": 4, "fields": {"iso": "200"}},
+  {"model": "film.sensitivity", "pk": 5, "fields": {"iso": "400"}},
+  {"model": "film.sensitivity", "pk": 6, "fields": {"iso": "800"}},
+  {"model": "film.sensitivity", "pk": 7, "fields": {"iso": "1600"}},
+  {"model": "film.sensitivity", "pk": 8, "fields": {"iso": "125"}},
+  {"model": "film.sensitivity", "pk": 9, "fields": {"iso": "80"}}
+]

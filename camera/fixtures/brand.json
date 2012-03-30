@@ -1,0 +1,22 @@
+[
+  {"model": "camera.brand", "pk": 1, "fields": {"name": "Canon"}},
+  {"model": "camera.brand", "pk": 2, "fields": {"name": "Nikon"}},
+  {"model": "camera.brand", "pk": 3, "fields": {"name": "Zeiss Ikon"}},
+  {"model": "camera.brand", "pk": 4, "fields": {"name": "Kodak"}},
+  {"model": "camera.brand", "pk": 5, "fields": {"name": "Kowa"}},
+  {"model": "camera.brand", "pk": 6, "fields": {"name": "Fujica"}},
+  {"model": "camera.brand", "pk": 7, "fields": {"name": "Minolta"}},
+  {"model": "camera.brand", "pk": 8, "fields": {"name": "Olympus"}},
+  {"model": "camera.brand", "pk": 9, "fields": {"name": "Lomo"}},
+  {"model": "camera.brand", "pk": 10, "fields": {"name": "Polaroid"}},
+  {"model": "camera.brand", "pk": 11, "fields": {"name": "Zenit"}},
+  {"model": "camera.brand", "pk": 12, "fields": {"name": "Praktica"}},
+  {"model": "camera.brand", "pk": 13, "fields": {"name": "Mamiya"}},
+  {"model": "camera.brand", "pk": 14, "fields": {"name": "Yashica"}},
+  {"model": "camera.brand", "pk": 15, "fields": {"name": "Dacora"}},
+  {"model": "camera.brand", "pk": 16, "fields": {"name": "Welta"}},
+  {"model": "camera.brand", "pk": 17, "fields": {"name": "Fed"}},
+  {"model": "camera.brand", "pk": 18, "fields": {"name": "Photax"}},
+  {"model": "camera.brand", "pk": 19, "fields": {"name": "Revue"}},
+  {"model": "camera.brand", "pk": 20, "fields": {"name": "Zorki"}}
+]
