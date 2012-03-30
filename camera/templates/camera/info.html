@@ -1,0 +1,43 @@
+<h1>{{ catalog.camera_model }}</h1>
+
+<table>
+    <tr><td>date</td><td>{{ catalog.date }}</td></tr>
+    {% if catalog.is_borrowed %}
+        <tr><td>borrowed</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+    {% if catalog.given %}
+        <tr><td>given by</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+    {% if catalog.gift %}
+        <tr><td>gift by</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+
+    <tr><td>working</td><td>{{ catalog.working }}</td></tr>
+    <tr><td>price</td><td>{{ catalog.price }}</td></tr>
+    <tr><td>serial number</td><td>{{ catalog.sn }}</td></tr>
+    <tr><td>comment</td><td>{{ catalog.comment }}</td></tr>
+</table>
+
+{% if filmincamera %}
+    {{ filmincamera.life }}
+{% else %}
+    <p>cet appareil est vide</p>
+{% endif %}
+
+{% if history %}
+    <table>
+    {% for film in history %}
+        <tr><td><a href="/film/{{ film.pk }}">{{ film.film_life }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>cet appareil n'a jamais été utilisé</p>
+{% endif %}
+
+{% if encyclopedia %}
+    <table>
+        {% for e in encyclopedia %}
+            <tr><td>{{ e.key }}</td><td>{{ e.value }}</td></tr>
+        {% endfor %}
+    </table>
+{% endif %}
