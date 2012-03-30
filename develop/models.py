@@ -11,7 +11,7 @@ class Product(models.Model):
     should_be_done_date = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return name
+        return self.name
 
 
 class ProductToLife(models.Model):

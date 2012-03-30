@@ -50,3 +50,6 @@ class Encyclopedia(models.Model):
     camera_model = models.ForeignKey(Model)
     key = models.CharField(max_length=255)
     value = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return "%s : %s" % (self.key, self.value)
