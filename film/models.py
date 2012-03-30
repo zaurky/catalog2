@@ -26,7 +26,7 @@ class Sensitivity(models.Model):
     iso = models.IntegerField()
 
     def __unicode__(self):
-        return "%s ISO" % self.name
+        return "%s ISO" % self.iso
 
 
 class Catalog(models.Model):
@@ -73,7 +73,7 @@ class Catalog(models.Model):
     sn = models.CharField(max_length=255, null=True, blank=True)
 
     def __unicode__(self):
-        return "%s (%s)" % (self.film_ref, self.sensitivity)
+        return "%s (%s)" % (self.film_ref, self.film_sensitivity)
 
 
 def get_handle():
