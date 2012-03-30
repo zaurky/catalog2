@@ -1,0 +1,4 @@
+[
+  {"model": "develop.product", "pk": 1, "fields": {"name": "ID-11"}},
+  {"model": "develop.product", "pk": 2, "fields": {"name": "Rapid Fixer"}}
+]

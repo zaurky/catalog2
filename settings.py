@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'catalog2.camera',
     'catalog2.film',
     'catalog2.contact',
+    'catalog2.develop',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
