@@ -24,3 +24,13 @@ def info(request, catalog_id):
         'filmincamera': filmincamera,
         'history': history,
     })
+
+def edit(request, catalog_id):
+    catalog = get_object_or_404(Catalog, pk=catalog_id)
+    return render_to_response('camera/edit.html', {
+        'catalog': catalog,
+    })
+
+def update(request, catalog_id):
+    catalog = get_object_or_404(Catalog, pk=catalog_id)
+
