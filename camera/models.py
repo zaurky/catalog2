@@ -1,4 +1,7 @@
 from django.db import models
+from datetime import datetime
+
+from catalog2.contact.models import Contact
 
 # Create your models here.
 
@@ -20,10 +23,12 @@ class Model(models.Model):
 
 class Catalog(models.Model):
     camera_model = models.ForeignKey(Model)
-    date = models.DateTimeField()
-    is_borrowed = models.BooleanField()
-    given = models.BooleanField()
-    gift = models.BooleanField()
+    who = models.ForeignKey(Contact, default=6)
+
+    date = models.DateTimeField(default=datetime.now)
+    is_borrowed = models.BooleanField(default=False)
+    given = models.BooleanField(default=False)
+    gift = models.BooleanField(default=False)
 
     WORKING_CHOICES = (
         ('Y', 'yes'),
@@ -33,9 +38,15 @@ class Catalog(models.Model):
     )
     working = models.CharField(max_length=1, choices=WORKING_CHOICES)
 
-    price = models.IntegerField()
-    sn = models.CharField(max_length=255)
-    comment = models.CharField(max_length=1024)
+    price = models.IntegerField(default=0)
+    sn = models.CharField(max_length=255, null=True, blank=True)
+    comment = models.CharField(max_length=1024, null=True)
 
     def __unicode__(self):
         return "%s : %s (%s)" % (self.camera_model, self.sn, self.comment)
+
+
+class Encyclopedia(models.Model):
+    camera_model = models.ForeignKey(Model)
+    key = models.CharField(max_length=255)
+    value = models.CharField(max_length=255)
