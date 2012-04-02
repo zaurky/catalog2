@@ -82,9 +82,12 @@ def get_handle():
 
 class Life(models.Model):
     film_catalog = models.ForeignKey(Catalog)
-    shoot_sensitivity = models.ForeignKey(Sensitivity, related_name='shoot')
-    dev_sensitivity = models.ForeignKey(Sensitivity, related_name='dev')
-    developer = models.ForeignKey(Developer)
+    shoot_sensitivity = models.ForeignKey(Sensitivity, related_name='shoot',
+        null=True, blank=True)
+    dev_sensitivity = models.ForeignKey(Sensitivity, related_name='dev',
+        null=True, blank=True)
+    developer = models.ForeignKey(Developer,
+        null=True, blank=True)
 
     handle = models.CharField(max_length=255, default=get_handle)
     insertion = models.DateTimeField(default=None, null=True, blank=True)
