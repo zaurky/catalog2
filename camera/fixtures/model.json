@@ -31,12 +31,12 @@
   {"model": "camera.model", "pk": 30, "fields": {"camera_brand": 12, "name": "B100 electronic"}},
   {"model": "camera.model", "pk": 31, "fields": {"camera_brand": 14, "name": "FX-3 super 2000"}},
   {"model": "camera.model", "pk": 33, "fields": {"camera_brand": 2, "name": "F3"}},
-  {"model": "camera.model", "pk": 34, "fields": {"camera_brand": 14, "name": "Electro+35+MC"}},
+  {"model": "camera.model", "pk": 34, "fields": {"camera_brand": 14, "name": "Electro 35 MC"}},
   {"model": "camera.model", "pk": 35, "fields": {"camera_brand": 20, "name": "1 model c1"}},
-  {"model": "camera.model", "pk": 36, "fields": {"camera_brand": 20, "name": "1+model+d"}},
-  {"model": "camera.model", "pk": 37, "fields": {"camera_brand": 17, "name": "1+model+X"}},
-  {"model": "camera.model", "pk": 38, "fields": {"camera_brand": 17, "name": "1+model+Y"}},
-  {"model": "camera.model", "pk": 39, "fields": {"camera_brand": 1, "name": "canonet+QL17"}},
+  {"model": "camera.model", "pk": 36, "fields": {"camera_brand": 20, "name": "1 model d"}},
+  {"model": "camera.model", "pk": 37, "fields": {"camera_brand": 17, "name": "1 model X"}},
+  {"model": "camera.model", "pk": 38, "fields": {"camera_brand": 17, "name": "1 model Y"}},
+  {"model": "camera.model", "pk": 39, "fields": {"camera_brand": 1, "name": "canonet QL17"}},
   {"model": "camera.model", "pk": 40, "fields": {"camera_brand": 2, "name": "FE"}},
   {"model": "camera.model", "pk": 41, "fields": {"camera_brand": 20, "name": "4"}}
 ]
