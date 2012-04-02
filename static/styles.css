@@ -1,0 +1,157 @@
+
+body {
+  background-color: #111111;
+  color : #DDDDDD;
+}
+
+a {
+	text-decoration:none;
+	color: #AAAAAA;
+}
+
+th {
+  color: #444444;
+}
+/* ###### vertical bar ##### */
+#vnavbar {
+	clear: both;
+	float: top;
+	width: 300px !important;
+	background: transparent url('images/nav_bg.gif') repeat-x 0 0;
+}
+
+ul.vmenu {
+	float: top;
+	margin: 0;
+	padding: 0 15px;
+	list-style-type: none;
+	border-width: thin;
+	border-style: solid;
+	border-color: orange;
+}
+
+ul.vmenu li {
+	float: top;
+	background-color: #232323;
+}
+
+ul.vmenu li a {
+	float: top;
+	display: block;
+	height: 28px;
+	padding: 3px 15px 0 15px;
+	line-height: 24px;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul.vmenu li a:link,
+ul.vmenu li a:visited {
+	color: #fff;
+	background: transparent url('css/images/nav_hover.gif') no-repeat center top;
+}
+
+ul.vmenu li a:hover,
+ul.vmenu li a:active {
+	color: #fff;
+	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;
+	text-decoration: none;
+}
+
+
+/* ###### horizontal bar ##### */
+#navbar {
+	clear: both;
+	float: left;
+	width: 100%;
+	height: 31px;
+	background: transparent url('images/nav_bg.gif') repeat-x 0 0;
+}
+
+ul.menu {
+	float: left;
+	margin: 0;
+	padding: 0 15px;
+	list-style-type: none;
+	border-width: thin;
+	border-style: solid;
+	border-color: orange;
+}
+
+ul.menu li {
+	float: left;
+	background-color: #232323;
+}
+
+ul.menu li a {
+	float: left;
+	display: block;
+	height: 28px;
+	padding: 3px 15px 0 15px;
+	line-height: 24px;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul.menu li a:link,
+ul.menu li a:visited {
+	color: #fff;
+	background: transparent url('css/images/nav_hover.gif') no-repeat center top;
+}
+
+ul.menu li a:hover,
+ul.menu li a:active {
+	color: #fff;
+	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;
+	text-decoration: none;
+}
+
+ul li.menu-current a:link,
+ul li.menu-current a:visited,
+ul li.menu-current a:hover,
+ul li.menu-current a:active {
+	color: #fff;
+	background: transparent url('css/images/nav_active.gif') no-repeat center bottom;
+	text-decoration: none;
+}
+
+
+/* ###### vbox ##### */
+#vbox {
+	position: absolute;
+	background: url('css/images/boxbg.jpg') no-repeat;
+	left: 400px;
+	top: 10px;
+	padding: 1.2em;
+	border-bottom: 1px solid #5CA137;
+	margin-bottom: 2em;
+	text-align: justify;
+}
+
+#vbox ul {
+	list-style: none;
+}
+
+#vbox li {
+	line-height: 2.0em;
+}
+
+/* ###### box ##### */
+#box {
+	position: relative;
+	background: url('css/images/boxbg.jpg') no-repeat;
+	left: -1.5em;
+	padding: 1.2em;
+	border-bottom: 1px solid #5CA137;
+	margin-bottom: 2em;
+	text-align: justify;
+}
+
+#box ul {
+	list-style: none;
+}
+
+#box li {
+	line-height: 2.0em;
+}
+
