@@ -1,4 +1,8 @@
-<link rel="stylesheet" type="text/css" href="/static/styles.css" />
+{% extends "base.html" %}
+
+{% block title %}camera edition : {{ camera.camera_model }}{% endblock %}
+
+{% block content %}
 <h1>Edit "{{ catalog.camera_model }}"</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -27,3 +31,4 @@
 
 <input type="submit" value="Ok" />
 </form>
+{% endblock %}
