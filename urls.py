@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 
 
     # cameras
+    url(r'^/?$', 'camera.views.list'),
     url(r'^camera/?$', 'camera.views.list'),
     url(r'^camera/(?P<catalog_id>\d+)/?$', 'camera.views.info'),
     url(r'^camera/(?P<catalog_id>\d+)/edit/?$', 'camera.views.edit'),
