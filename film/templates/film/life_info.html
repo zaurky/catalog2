@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}life info : {{ life.film_catalog }}{% endblock %}
+
+{% block content %}
+<h1>{{ life }}</h1>
+
+<hr/>
+
+<table>
+    <tr><td>Name</td><td>{{ life.film_catalog }}</td></tr>
+    <tr><td>Shoot sensitivity</td><td>{{ life.shoot_sensitivity }}</td></tr>
+    <tr><td>Dev. sensitivity</td><td>{{ life.dev_sensitivity }}</td></tr>
+    <tr><td>Developer</td><td>{{ life.developer }}</td></tr>
+    <tr><td>Handle</td><td>{{ life.handle }}</td></tr>
+    <tr><td>Reference</td><td>{{ life.reference }}</td></tr>
+    <tr><td>Insertion date</td><td>{{ life.insertion }}</td></tr>
+    <tr><td>Removal date</td><td>{{ life.removal }}</td></tr>
+    <tr><td>Develop date</td><td>{{ life.develop }}</td></tr>
+</table>
+{% endblock %}

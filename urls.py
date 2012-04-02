@@ -28,4 +28,6 @@ urlpatterns = patterns('',
     url(r'^film/(?P<catalog_id>\d+)/?$', 'film.views.info'),
     url(r'^film/(?P<catalog_id>\d+)/edit/?$', 'film.views.edit'),
     url(r'^film/(?P<catalog_id>\d+)/update/?$', 'film.views.update'),
+
+    url(r'^film/life/(?P<life_id>\d+)/?$', 'film.views.life_view'),
 )

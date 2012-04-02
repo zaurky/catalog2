@@ -30,3 +30,10 @@ def edit(request, catalog_id):
 
 def update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
+
+
+def life_view(request, life_id):
+    life = get_object_or_404(Life, pk=life_id)
+    return render_to_response('film/life_info.html', {
+        'life': life,
+    })
