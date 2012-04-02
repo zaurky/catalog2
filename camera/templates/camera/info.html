@@ -5,6 +5,8 @@
 {% block content %}
 <h1>{{ catalog.camera_model }}</h1>
 
+<hr/>
+
 <table>
     <tr><td>date</td><td>{{ catalog.date }}</td></tr>
     {% if catalog.is_borrowed %}
@@ -23,12 +25,14 @@
     <tr><td>comment</td><td>{{ catalog.comment }}</td></tr>
 </table>
 
+<hr/>
 {% if filmincamera %}
     {{ filmincamera.life }}
 {% else %}
     <p>cet appareil est vide</p>
 {% endif %}
 
+<hr/>
 {% if history %}
     <table>
     {% for film in history %}
@@ -39,12 +43,14 @@
     <p>cet appareil n'a jamais été utilisé</p>
 {% endif %}
 
+<hr/>
 {% if encyclopedia %}
     <table>
         {% for e in encyclopedia %}
             <tr><td>{{ e.key }}</td><td>{{ e.value }}</td></tr>
         {% endfor %}
     </table>
+    <hr/>
 {% endif %}
 
 <br/>
