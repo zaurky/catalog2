@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}film info : {{ catalog.film_ref }}{% endblock %}
+
+{% block content %}
+<h1>{{ catalog.film_ref }}</h1>
+
+<hr/>
+
+<table>
+    <tr><td>Name</td><td>{{ catalog.film_ref }}</td></tr>
+    <tr><td>Sensitivity</td><td>{{ catalog.film_sensitivity }}</td></tr>
+    <tr><td>Comment</td><td>{{ catalog.comment }}</td></tr>
+    <tr><td>Quantity</td><td>{{ catalog.quantity }}</td></tr>
+    <tr><td>Expiration</td><td>{{ catalog.expiration }}</td></tr>
+    <tr><td>Buy date</td><td>{{ catalog.buy_date }}</td></tr>
+    <tr><td>Poses</td><td>{{ catalog.poses }}</td></tr>
+    <tr><td>Color</td><td>{{ catalog.color }}</td></tr>
+    <tr><td>Format</td><td>{{ catalog.format }}</td></tr>
+</table>
+
+<hr/>
+
+{% if filmlife %}
+    <table>
+    {% for life in filmlife %}
+	<tr><td><a href="/film/life/{{ life.id }}">{{ life }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>cette pellicule n'a pas d'instance</p>
+{% endif %}
+
+<br/>
+<br/>
+
+<a href="/film/{{ catalog.pk }}/edit/">edit this film</a>
+{% endblock %}
+
+

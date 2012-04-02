@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Film list{% endblock %}
+
+{% block content %}
+{% if catalog_list %}
+    <table>
+    {% for catalog in catalog_list %}
+        <tr><td><a href="/film/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>Aucune pellicule n'est disponible.</p>
+{% endif %}
+{% endblock %}

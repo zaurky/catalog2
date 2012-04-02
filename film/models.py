@@ -61,17 +61,6 @@ class Catalog(models.Model):
     )
     format = models.CharField(max_length=1, choices=FORMAT_CHOICES)
 
-    WORKING_CHOICES = (
-        ('Y', 'yes'),
-        ('N', 'no'),
-        ('M', 'maybe'),
-        ('L', 'maybe not')
-    )
-    working = models.CharField(max_length=1, choices=WORKING_CHOICES)
-
-    price = models.IntegerField(default=0)
-    sn = models.CharField(max_length=255, null=True, blank=True)
-
     def __unicode__(self):
         return "%s (%s)" % (self.film_ref, self.film_sensitivity)
 
