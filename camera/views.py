@@ -4,6 +4,7 @@ from catalog2.film.models import InCamera as FilmInCamera
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ def list(request):
     })
     return HttpResponse(t.render(c))
 
+@login_required
 def info(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     filmincamera = FilmInCamera.objects.filter(camera_catalog=catalog, loaded=1)
@@ -25,12 +27,14 @@ def info(request, catalog_id):
         'history': history,
     })
 
+@login_required
 def edit(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     return render_to_response('camera/edit.html', {
         'catalog': catalog,
     })
 
+@login_required
 def update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
 
