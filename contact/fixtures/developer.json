@@ -1,8 +1,1 @@
-[
-  {"model": "contact.developer", "pk": 1, "fields": {"name": "Maison", "town": "Lognes", "country": "France"}},
-  {"model": "contact.developer", "pk": 2, "fields": {"name": "Nation", "town": "Paris", "country": "France"}},
-  {"model": "contact.developer", "pk": 3, "fields": {"name": "Photo Express Bay 2", "town": "Lognes", "country": "France"}},
-  {"model": "contact.developer", "pk": 4, "fields": {"name": "Walgreens", "town": "Carolina", "country": "Puerto Rico"}},
-  {"model": "contact.developer", "pk": 5, "fields": {"name": "Sam's Club", "town": "Carolina", "country": "Puerto Rico"}},
-  {"model": "contact.developer", "pk": 6, "fields": {"name": "Bussy", "town": "Bussy", "country": "France"}}
-]
+[{"pk": 1, "model": "contact.developer", "fields": {"town": "Lognes", "country": "France", "name": "Maison"}}, {"pk": 2, "model": "contact.developer", "fields": {"town": "Paris", "country": "France", "name": "Nation"}}, {"pk": 3, "model": "contact.developer", "fields": {"town": "Lognes", "country": "France", "name": "Photo Express Bay 2"}}, {"pk": 4, "model": "contact.developer", "fields": {"town": "Carolina", "country": "Puerto Rico", "name": "Walgreens"}}, {"pk": 5, "model": "contact.developer", "fields": {"town": "Carolina", "country": "Puerto Rico", "name": "Sam's Club"}}, {"pk": 6, "model": "contact.developer", "fields": {"town": "Bussy", "country": "France", "name": "Bussy"}}]

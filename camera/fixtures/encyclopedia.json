@@ -1,12 +1,1 @@
-[
-  {"model": "camera.encyclopedia", "pk": 1, "fields": {"key": "url", "value": "http://35mm-compact.com/reflex/canona1.htm", "camera_model": "1"}},
-  {"model": "camera.encyclopedia", "pk": 2, "fields": {"key": "year", "value": "1978", "camera_model": "1"}},
-  {"model": "camera.encyclopedia", "pk": 3, "fields": {"key": "url", "value": "http://fr.wikipedia.org/wiki/Canon_AE-1", "camera_model": "2"}},
-  {"model": "camera.encyclopedia", "pk": 4, "fields": {"key": "year", "value": "1976", "camera_model": "2"}},
-  {"model": "camera.encyclopedia", "pk": 5, "fields": {"key": "url", "value": "http://35mm-compact.com/compact/canonet28.htm", "camera_model": "3"}},
-  {"model": "camera.encyclopedia", "pk": 6, "fields": {"key": "year", "value": "1971", "camera_model": "3"}},
-  {"model": "camera.encyclopedia", "pk": 7, "fields": {"key": "url", "value": "http://35mm-compact.com/reflex/canonftb.htm", "camera_model": "4"}},
-  {"model": "camera.encyclopedia", "pk": 8, "fields": {"key": "year", "value": "1971", "camera_model": "4"}},
-  {"model": "camera.encyclopedia", "pk": 9, "fields": {"key": "url", "value": "http://www.collection-appareils.fr/nikon/html/nikon_fm.php", "camera_model": "5"}},
-  {"model": "camera.encyclopedia", "pk": 10, "fields": {"key": "year", "value": "1977", "camera_model": "5"}}
-]
+[{"pk": 1, "model": "camera.encyclopedia", "fields": {"camera_model": 1, "value": "http://35mm-compact.com/reflex/canona1.htm", "key": "url"}}, {"pk": 2, "model": "camera.encyclopedia", "fields": {"camera_model": 1, "value": "1978", "key": "year"}}, {"pk": 3, "model": "camera.encyclopedia", "fields": {"camera_model": 2, "value": "http://fr.wikipedia.org/wiki/Canon_AE-1", "key": "url"}}, {"pk": 4, "model": "camera.encyclopedia", "fields": {"camera_model": 2, "value": "1976", "key": "year"}}, {"pk": 5, "model": "camera.encyclopedia", "fields": {"camera_model": 3, "value": "http://35mm-compact.com/compact/canonet28.htm", "key": "url"}}, {"pk": 6, "model": "camera.encyclopedia", "fields": {"camera_model": 3, "value": "1971", "key": "year"}}, {"pk": 7, "model": "camera.encyclopedia", "fields": {"camera_model": 4, "value": "http://35mm-compact.com/reflex/canonftb.htm", "key": "url"}}, {"pk": 8, "model": "camera.encyclopedia", "fields": {"camera_model": 4, "value": "1971", "key": "year"}}, {"pk": 9, "model": "camera.encyclopedia", "fields": {"camera_model": 5, "value": "http://www.collection-appareils.fr/nikon/html/nikon_fm.php", "key": "url"}}, {"pk": 10, "model": "camera.encyclopedia", "fields": {"camera_model": 5, "value": "1977", "key": "year"}}]

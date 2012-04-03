@@ -1,4 +1,1 @@
-[
-  {"model": "develop.product", "pk": 1, "fields": {"name": "ID-11"}},
-  {"model": "develop.product", "pk": 2, "fields": {"name": "Rapid Fixer"}}
-]
+[{"pk": 1, "model": "develop.product", "fields": {"buy_date": null, "name": "ID-11", "should_be_done_date": null, "opening_date": null}}, {"pk": 2, "model": "develop.product", "fields": {"buy_date": null, "name": "Rapid Fixer", "should_be_done_date": null, "opening_date": null}}]

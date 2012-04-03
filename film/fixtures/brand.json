@@ -1,11 +1,1 @@
-[
-  {"model": "film.brand", "pk": 1, "fields": {"name": "Kodak"}},
-  {"model": "film.brand", "pk": 2, "fields": {"name": "Fuji"}},
-  {"model": "film.brand", "pk": 3, "fields": {"name": "Agfa"}},
-  {"model": "film.brand", "pk": 4, "fields": {"name": "Ilford"}},
-  {"model": "film.brand", "pk": 5, "fields": {"name": "Foma"}},
-  {"model": "film.brand", "pk": 6, "fields": {"name": "ORWO"}},
-  {"model": "film.brand", "pk": 7, "fields": {"name": "Fnac"}},
-  {"model": "film.brand", "pk": 8, "fields": {"name": "Lomographie"}},
-  {"model": "film.brand", "pk": 9, "fields": {"name": "Solaris"}}
-]
+[{"pk": 1, "model": "film.brand", "fields": {"name": "Kodak"}}, {"pk": 2, "model": "film.brand", "fields": {"name": "Fuji"}}, {"pk": 3, "model": "film.brand", "fields": {"name": "Agfa"}}, {"pk": 4, "model": "film.brand", "fields": {"name": "Ilford"}}, {"pk": 5, "model": "film.brand", "fields": {"name": "Foma"}}, {"pk": 6, "model": "film.brand", "fields": {"name": "ORWO"}}, {"pk": 7, "model": "film.brand", "fields": {"name": "Fnac"}}, {"pk": 8, "model": "film.brand", "fields": {"name": "Lomographie"}}, {"pk": 9, "model": "film.brand", "fields": {"name": "Solaris"}}]
