@@ -40,7 +40,7 @@ class Catalog(models.Model):
 
     price = models.IntegerField(default=0)
     sn = models.CharField(max_length=255, null=True, blank=True)
-    comment = models.CharField(max_length=1024, null=True)
+    comment = models.CharField(max_length=1024, null=True, blank=True)
 
     def __unicode__(self):
         return "%s : %s (%s)" % (self.camera_model, self.sn, self.comment)
