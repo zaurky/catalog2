@@ -3,6 +3,7 @@ from catalog2.film.models import Catalog, Life
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def list(request):
     })
     return HttpResponse(t.render(c))
 
+@login_required
 def info(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     filmlife = Life.objects.filter(film_catalog=catalog)
@@ -22,16 +24,19 @@ def info(request, catalog_id):
         'filmlife': filmlife,
     })
 
+@login_required
 def edit(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     return render_to_response('film/edit.html', {
         'catalog': catalog,
     })
 
+@login_required
 def update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
 
 
+@login_required
 def life_view(request, life_id):
     life = get_object_or_404(Life, pk=life_id)
     return render_to_response('film/life_info.html', {
