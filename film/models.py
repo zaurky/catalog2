@@ -78,14 +78,14 @@ class Life(models.Model):
     developer = models.ForeignKey(Developer,
         null=True, blank=True)
 
-    handle = models.CharField(max_length=255, default=get_handle)
+    handle = models.CharField(max_length=32, default=get_handle)
     insertion = models.DateTimeField(default=None, null=True, blank=True)
     removal = models.DateTimeField(default=None, null=True, blank=True)
     develop = models.DateTimeField(default=None, null=True, blank=True)
-    reference = models.CharField(max_length=16, null=True, blank=True)
+    reference = models.CharField(max_length=4, null=True, blank=True)
 
     def __unicode__(self):
-        return "%s [%s/%s]" % (self.film_catalog, self.handle, self.reference)
+        return "%s [%s]" % (self.film_catalog, self.reference)
 
 
 class InCamera(models.Model):
