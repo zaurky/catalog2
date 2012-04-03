@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ../conf/catalog.sh
+. conf/catalog.sh
 
 for T in $TABLES; do
     sqlite3 db/catalog2.sqlite3 "DROP TABLE $T;"
