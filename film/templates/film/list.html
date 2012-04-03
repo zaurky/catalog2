@@ -6,7 +6,7 @@
 {% if catalog_list %}
     <table>
     {% for catalog in catalog_list %}
-        <tr><td><a href="/film/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
+        <tr><td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
     {% endfor %}
     </table>
 {% else %}

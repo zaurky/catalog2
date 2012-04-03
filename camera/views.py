@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def list(request):
+def catalog_list(request):
     catalog_list = Catalog.objects.all()
     t = loader.get_template('camera/list.html')
     c = Context({
@@ -17,7 +17,7 @@ def list(request):
     return HttpResponse(t.render(c))
 
 @login_required
-def info(request, catalog_id):
+def catalog_info(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     filmincamera = FilmInCamera.objects.filter(camera_catalog=catalog, loaded=1)
     history = FilmInCamera.objects.filter(camera_catalog=catalog, loaded=0)
@@ -28,13 +28,13 @@ def info(request, catalog_id):
     })
 
 @login_required
-def edit(request, catalog_id):
+def catalog_edit(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
     return render_to_response('camera/edit.html', {
         'catalog': catalog,
     })
 
 @login_required
-def update(request, catalog_id):
+def catalog_update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
 
