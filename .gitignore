@@ -1,3 +1,4 @@
 *.pyc
+*.swp
 *.bkp
 catalog2.sqlite3
