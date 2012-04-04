@@ -26,8 +26,8 @@
 </table>
 
 <hr/>
-{% if filmincamera %}
-    {{ filmincamera.life }}
+{% if catalog.loaded %}
+    {{ catalog.loaded }}
 {% else %}
     <p>cet appareil est vide</p>
 {% endif %}

@@ -42,6 +42,10 @@ class Catalog(models.Model):
     sn = models.CharField(max_length=255, null=True, blank=True)
     comment = models.CharField(max_length=1024, null=True, blank=True)
 
+    @property
+    def loaded(self):
+        return (self.incamera.filter(loaded=True).all() or [None])[0]
+
     def __unicode__(self):
         return "%s : %s (%s)" % (self.camera_model, self.sn, self.comment)
 

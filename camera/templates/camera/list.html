@@ -5,8 +5,16 @@
 {% block content %}
 {% if catalog_list %}
     <table>
+        <tr><th>Camera</th><th>Action</th></tr>
     {% for catalog in catalog_list %}
-        <tr><td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
+        <tr>
+          <td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
+	  {% if catalog.loaded %}
+          <td><a href="/film/incamera/unload/camera/{{ catalog.pk }}">unload</a></td>
+          {% else %}
+          <td><a href="/film/incamera/load/camera/{{ catalog.pk }}">load</a></td>
+          {% endif %}
+        </tr>
     {% endfor %}
     </table>
 {% else %}
