@@ -9,12 +9,15 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def catalog_list(request):
-    catalog_list = Catalog.objects.all()
-    t = loader.get_template('camera/list.html')
-    c = Context({
+    catalog_list = Catalog.objects
+
+    if request.GET.get('best'):
+        catalog_list = catalog_list.filter(incamera__isnull=False)
+
+    catalog_list = catalog_list.all()
+    return render_to_response('camera/list.html', {
         'catalog_list': catalog_list,
     })
-    return HttpResponse(t.render(c))
 
 @login_required
 def catalog_info(request, catalog_id):
