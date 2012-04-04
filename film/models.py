@@ -89,6 +89,16 @@ class Life(models.Model):
     develop = models.DateTimeField(default=None, null=True, blank=True)
     reference = models.CharField(max_length=4, null=True, blank=True)
 
+    @classmethod
+    def next_reference(cls):
+        return "%04d" % (
+            int(Life.objects.filter(reference__isnull=False).order_by('-reference')[0].reference)
+            + 1)
+
+    def insertion(self):
+        self.reference = self.next_reference()
+        self.insertion = datetime.now()
+
     def __unicode__(self):
         return "%s [%s]" % (self.film_catalog, self.reference)
 
