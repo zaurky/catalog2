@@ -18,6 +18,10 @@ urlpatterns = patterns('',
     # login
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 
+    # index
+    url(r'^/?$', 'django.views.generic.simple.direct_to_template', {
+        'template': 'index.html'}),
+
     # cameras
     url(r'^/?$', 'camera.views.catalog_list'),
     url(r'^camera/catalog/?$', 'camera.views.catalog_list'),
