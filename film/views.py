@@ -51,3 +51,22 @@ def incamera_camera_load(request, camera_catalog_id):
         'camera_catalog': camera_catalog,
         'film_catalogs': film_catalogs,
     })
+
+@login_required
+def incamera_load(request, camera_catalog_id, film_catalog_id):
+    camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
+    film_catalog = get_object_or_404(Catalog, pk=film_catalog_id)
+    if not film_catalog.remaining:
+        raise
+
+    life = film_catalog.remaining[0]
+    incamera = InCamera(film_life=life, camera_catalog=camera_catalog, loaded=True)
+    incamera.film_life.insertion()
+
+    incamera.save()
+    incamera.film_life.save()
+
+    return render_to_response('incamera/loaded.html', {
+        'incamera': incamera,
+    })
+
