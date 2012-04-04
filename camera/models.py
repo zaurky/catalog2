@@ -47,7 +47,10 @@ class Catalog(models.Model):
         return (self.incamera.filter(loaded=True).all() or [None])[0]
 
     def __unicode__(self):
-        return "%s : %s (%s)" % (self.camera_model, self.sn, self.comment)
+        label = unicode(self.camera_model)
+        label += " : %s" % self.sn if self.sn else ''
+        label += " (%s)" % self.comment if self.comment else ''
+        return label
 
 
 class Encyclopedia(models.Model):
