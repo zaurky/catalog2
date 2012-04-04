@@ -66,8 +66,8 @@ class Catalog(models.Model):
         return self.lifes.filter(incamera=None).all()
 
     def __unicode__(self):
-        return "%s (%s) [%d]" % (
-            self.film_ref, self.film_sensitivity, len(self.remaining))
+        return "%s (%s) [%s]" % (
+            self.film_ref, self.film_sensitivity, len(self.remaining) or 'X')
 
 
 def get_handle():
