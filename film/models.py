@@ -61,8 +61,13 @@ class Catalog(models.Model):
     )
     format = models.CharField(max_length=1, choices=FORMAT_CHOICES)
 
+    @property
+    def remaining(self):
+        return self.lifes.filter(incamera=None).all()
+
     def __unicode__(self):
-        return "%s (%s)" % (self.film_ref, self.film_sensitivity)
+        return "%s (%s) [%d]" % (
+            self.film_ref, self.film_sensitivity, len(self.remaining))
 
 
 def get_handle():
