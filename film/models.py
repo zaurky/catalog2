@@ -70,7 +70,7 @@ def get_handle():
 
 
 class Life(models.Model):
-    film_catalog = models.ForeignKey(Catalog)
+    film_catalog = models.ForeignKey(Catalog, related_name='lifes')
     shoot_sensitivity = models.ForeignKey(Sensitivity, related_name='shoot',
         null=True, blank=True)
     dev_sensitivity = models.ForeignKey(Sensitivity, related_name='dev',
@@ -89,8 +89,8 @@ class Life(models.Model):
 
 
 class InCamera(models.Model):
-    film_life = models.ForeignKey(Life)
-    camera_catalog = models.ForeignKey(CameraCatalog)
+    film_life = models.ForeignKey(Life, related_name='incamera')
+    camera_catalog = models.ForeignKey(CameraCatalog, related_name='incamera')
 
     loaded = models.BooleanField(default=True)
     poses = models.IntegerField(null=True, blank=True)

@@ -1,5 +1,6 @@
 from django.template import Context, loader
-from catalog2.film.models import Catalog, Life
+from catalog2.film.models import Catalog, Life, InCamera
+from catalog2.camera.models import Catalog as CameraCatalog
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
@@ -35,10 +36,18 @@ def catalog_edit(request, catalog_id):
 def catalog_update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
 
-
 @login_required
 def life_view(request, life_id):
     life = get_object_or_404(Life, pk=life_id)
     return render_to_response('film/life_info.html', {
         'life': life,
+    })
+
+@login_required
+def incamera_camera_load(request, camera_catalog_id):
+    camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
+    film_catalogs = Catalog.objects.all()
+    return render_to_response('incamera/load_film.html', {
+        'camera_catalog': camera_catalog,
+        'film_catalogs': film_catalogs,
     })
