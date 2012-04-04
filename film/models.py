@@ -95,9 +95,15 @@ class Life(models.Model):
             int(Life.objects.filter(reference__isnull=False).order_by('-reference')[0].reference)
             + 1)
 
-    def insertion(self):
-        self.reference = self.next_reference()
+    def load(self):
         self.insertion = datetime.now()
+
+    def unload(self):
+        self.removal = datetime.now()
+        self.reference = self.next_reference()
+
+    def develop(self):
+        self.develop = datetime.now()
 
     def __unicode__(self):
         return "%s [%s]" % (self.film_catalog, self.reference)
@@ -109,6 +115,13 @@ class InCamera(models.Model):
 
     loaded = models.BooleanField(default=True)
     poses = models.IntegerField(null=True, blank=True)
+
+    def load(self):
+        self.loaded = True
+
+    def unload(self, poses):
+        self.loaded = False
+        self.poses = poses
 
     def __unicode__(self):
         return "%s %s %s" % (

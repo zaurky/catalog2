@@ -41,4 +41,6 @@ urlpatterns = patterns('',
         'film.views.incamera_camera_load'),
     url(r'^film/incamera/load/(?P<camera_catalog_id>\d+)/(?P<film_catalog_id>\d+)/?$',
         'film.views.incamera_load'),
+    url(r'^film/incamera/unload/camera/(?P<camera_catalog_id>\d+)/?$',
+        'film.views.incamera_unload'),
 )

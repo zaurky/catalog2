@@ -60,8 +60,9 @@ def incamera_load(request, camera_catalog_id, film_catalog_id):
         raise
 
     life = film_catalog.remaining[0]
-    incamera = InCamera(film_life=life, camera_catalog=camera_catalog, loaded=True)
-    incamera.film_life.insertion()
+    incamera = InCamera(film_life=life, camera_catalog=camera_catalog)
+    incamera.load()
+    incamera.film_life.load()
 
     incamera.save()
     incamera.film_life.save()
@@ -70,3 +71,21 @@ def incamera_load(request, camera_catalog_id, film_catalog_id):
         'incamera': incamera,
     })
 
+@login_required
+def incamera_unload(request, camera_catalog_id):
+    camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
+    if not camera_catalog.loaded:
+        raise
+
+    incamera = camera_catalog.loaded
+    life = incamera.film_life
+
+    incamera.unload(life.film_catalog.poses)
+    life.unload()
+
+    incamera.save()
+    life.save()
+
+    return render_to_response('incamera/unloaded.html', {
+        'incamera': incamera,
+    })
