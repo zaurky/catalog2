@@ -106,7 +106,8 @@ class Life(models.Model):
         self.develop = datetime.now()
 
     def __unicode__(self):
-        return "%s [%s]" % (self.film_catalog, self.reference)
+        return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if
+            self.incamera.count() else "")
 
 
 class InCamera(models.Model):
