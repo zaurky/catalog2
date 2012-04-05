@@ -18,4 +18,13 @@
     <tr><td>Removal date</td><td>{{ life.removal }}</td></tr>
     <tr><td>Develop date</td><td>{{ life.develop }}</td></tr>
 </table>
+
+<hr/>
+
+<table>
+    <tr><td><a href='/admin/film/life/{{ life.pk }}'>Edit life</a></td></tr>
+    {% if incamera %}
+    <tr><td><a href='/admin/film/incamera/{{ incamera.pk }}'>Edit incamera</a></td></tr>
+    {% endif %}
+</table>
 {% endblock %}
