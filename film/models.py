@@ -124,7 +124,6 @@ class InCamera(models.Model):
         self.poses = poses
 
     def __unicode__(self):
-        return "%s %s %s" % (
-            self.film_life,
-            'in' if self.loaded else 'from',
-            self.camera_catalog)
+        return unicode(self.film_life) + \
+            (' in ' if self.loaded else ' from ') + \
+            unicode(self.camera_catalog)
