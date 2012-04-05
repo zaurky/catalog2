@@ -33,7 +33,7 @@ class Catalog(models.Model):
     film_ref = models.ForeignKey(Ref)
     film_sensitivity = models.ForeignKey(Sensitivity)
 
-    comment = models.CharField(max_length=1024, null=True)
+    comment = models.CharField(max_length=1024, null=True, blank=True)
     quantity = models.IntegerField(default=1)
     expiration = models.DateField(null=True, blank=True)
     buy_date = models.DateField(default=datetime.now().date)
@@ -69,6 +69,14 @@ class Catalog(models.Model):
         return "%s (%s) [%s]" % (
             self.film_ref, self.film_sensitivity, len(self.remaining) or 'X')
 
+    def save(self, *args, **kargs):
+        ret = super(Catalog, self).save(*args, **kargs)
+        if self.quantity and not self.lifes.count():
+            # this is creation time
+            for i in range(0, self.quantity):
+                l = Life(film_catalog=self)
+                l.save()
+        return ret
 
 def get_handle():
     return uuid.uuid1().hex
