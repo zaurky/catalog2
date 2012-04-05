@@ -3,8 +3,10 @@
 {% block title %}Film list{% endblock %}
 
 {% block content %}
+
 {% if catalog_list %}
     <table>
+	<tr><th><a href='/admin/film/catalog/add/'>Films</a></th></tr>
     {% for catalog in catalog_list %}
         <tr><td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
     {% endfor %}
