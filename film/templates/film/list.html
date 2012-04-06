@@ -6,9 +6,12 @@
 
 {% if catalog_list %}
     <table>
-	<tr><th><a href='/admin/film/catalog/add/'>Films</a></th></tr>
+	<tr><th><a href='/admin/film/catalog/add/'>Films</a></th><th>Action</th></tr>
     {% for catalog in catalog_list %}
-        <tr><td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td></tr>
+        <tr>
+          <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
+          <td><a href='/admin/film/catalog/{{ catalog.pk }}'>edit</a></td>
+        </tr>
     {% endfor %}
     </table>
 {% else %}
