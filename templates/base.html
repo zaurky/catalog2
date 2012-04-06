@@ -5,10 +5,19 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <div id="navbar">
+      <ul id='menu' class='menu'>
+        <li><a href='/camera/catalog'>Camera list</a></li>
+        <li><a href='/film/catalog'>Film list</a></li>
+        <li><a href='/camera/catalog?best=1'>Camera best</a></li>
+        <li><a href='/admin'>Administration</a></li>
+        <li><a href='/'>Homepage</a></li>
+      </ul>
+    </div>
+    <br/>
+    <br/>
     {% block content %}{% endblock %}
-
     <hr/>
-    <a href='/'>home</a>
 </body>
 </html>
 
