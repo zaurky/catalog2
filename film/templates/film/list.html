@@ -10,7 +10,7 @@
     {% for catalog in catalog_list %}
         <tr>
           <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
-          <td><a href='/admin/film/catalog/{{ catalog.pk }}'>edit</a></td>
+          <td><a href='/admin/film/catalog/{{ catalog.pk }}'><img src='/static/icons/edit.png' alt='edit'/></a></td>
         </tr>
     {% endfor %}
     </table>
