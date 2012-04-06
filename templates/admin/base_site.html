@@ -1,9 +1,25 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
 
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+{% endblock %}
+
 {% block title %}{{ title }} | {% trans 'Catalog2 site admin' %}{% endblock %}
 
 {% block branding %}
+    <div id="navbar">
+      <ul id='menu' class='menu'>
+        <li><a href='/camera/catalog'>Camera list</a></li>
+        <li><a href='/film/catalog'>Film list</a></li>
+        <li><a href='/camera/catalog?best=1'>Camera best</a></li>
+        <li><a href='/admin'>Administration</a></li>
+        <li><a href='/'>Homepage</a></li>
+      </ul>
+    </div>
+    <br/>
+    <br/>
+
 <h1 id="site-name">{% trans 'Catalog2 administration' %}</h1>
 {% endblock %}
 
