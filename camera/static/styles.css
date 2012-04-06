@@ -17,7 +17,8 @@ th {
 	clear: both;
 	float: top;
 	width: 300px !important;
-	background: transparent url('images/nav_bg.gif') repeat-x 0 0;
+        font-size: 14px;
+/*	background: transparent url('images/nav_bg.gif') repeat-x 0 0;*/
 }
 
 ul.vmenu {
@@ -28,11 +29,13 @@ ul.vmenu {
 	border-width: thin;
 	border-style: solid;
 	border-color: orange;
+        font-size: 14px;
 }
 
 ul.vmenu li {
 	float: top;
 	background-color: #232323;
+        font-size: 14px;
 }
 
 ul.vmenu li a {
@@ -43,18 +46,19 @@ ul.vmenu li a {
 	line-height: 24px;
 	color: #fff;
 	text-decoration: none;
+        font-size: 14px;
 }
 
 ul.vmenu li a:link,
 ul.vmenu li a:visited {
 	color: #fff;
-	background: transparent url('css/images/nav_hover.gif') no-repeat center top;
+/*	background: transparent url('css/images/nav_hover.gif') no-repeat center top;*/
 }
 
 ul.vmenu li a:hover,
 ul.vmenu li a:active {
 	color: #fff;
-	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;
+/*	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;*/
 	text-decoration: none;
 }
 
@@ -65,7 +69,7 @@ ul.vmenu li a:active {
 	float: left;
 	width: 100%;
 	height: 31px;
-	background: transparent url('images/nav_bg.gif') repeat-x 0 0;
+/*	background: transparent url('images/nav_bg.gif') repeat-x 0 0;*/
 }
 
 ul.menu {
@@ -96,13 +100,13 @@ ul.menu li a {
 ul.menu li a:link,
 ul.menu li a:visited {
 	color: #fff;
-	background: transparent url('css/images/nav_hover.gif') no-repeat center top;
+/*	background: transparent url('css/images/nav_hover.gif') no-repeat center top;*/
 }
 
 ul.menu li a:hover,
 ul.menu li a:active {
 	color: #fff;
-	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;
+/*	background: transparent url('css/images/nav_hover.gif') no-repeat center -31px;*/
 	text-decoration: none;
 }
 
@@ -111,7 +115,7 @@ ul li.menu-current a:visited,
 ul li.menu-current a:hover,
 ul li.menu-current a:active {
 	color: #fff;
-	background: transparent url('css/images/nav_active.gif') no-repeat center bottom;
+/*	background: transparent url('css/images/nav_active.gif') no-repeat center bottom;*/
 	text-decoration: none;
 }
 
@@ -126,6 +130,7 @@ ul li.menu-current a:active {
 	border-bottom: 1px solid #5CA137;
 	margin-bottom: 2em;
 	text-align: justify;
+        font-size: 14px;
 }
 
 #vbox ul {
@@ -155,3 +160,22 @@ ul li.menu-current a:active {
 	line-height: 2.0em;
 }
 
+
+/* django admin */
+h1,h2,h3,h4,h5 {
+    color : #DDDDDD;
+}
+
+#header {
+	background-color: #232323;
+}
+
+#branding h1 {
+    color : #DDDDDD;
+	background-color: #232323;
+}
+
+#user-tools {
+	color : #DDDDDD;
+	background-color: #232323;
+}

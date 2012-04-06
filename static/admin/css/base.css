@@ -7,8 +7,12 @@ body {
     padding: 0;
     font-size: 12px;
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-    color: #333;
-    background: #fff;
+    background-color: #111111;
+    background: #111111;
+    color : #DDDDDD;
+
+/*    color: #333;
+    background: #fff;*/
 }
 
 /* LINKS */
