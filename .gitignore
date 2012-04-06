@@ -2,3 +2,4 @@
 *.swp
 *.bkp
 catalog2.sqlite3
+static/icons
