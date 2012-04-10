@@ -47,17 +47,17 @@ class Catalog(models.Model):
     poses = models.CharField(max_length=2, choices=POSES_CHOICES)
 
     COLOR_CHOICES = (
-        ('1', 'BW'),
-        ('2', 'negative'),
-        ('3', 'diapo'),
+        ('BW', 'BW'),
+        ('negative', 'negative'),
+        ('diapo', 'diapo'),
     )
-    color = models.CharField(max_length=1, choices=COLOR_CHOICES)
+    color = models.CharField(max_length=10, choices=COLOR_CHOICES)
 
     FORMAT_CHOICES = (
-        ('1', '24x36'),
-        ('2', '120'),
-        ('3', '220'),
-        ('4', '620'),
+        ('24x36', '24x36'),
+        ('120', '120'),
+        ('220', '220'),
+        ('620', '620'),
     )
     format = models.CharField(max_length=1, choices=FORMAT_CHOICES)
 
