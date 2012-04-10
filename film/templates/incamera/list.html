@@ -10,8 +10,6 @@
       <th>Ref</th>
       <th>camera</th>
       <th>film</th>
-      <th>ISO</th>
-      <th>color</th>
       <th>dev</th>
     </tr>
   {% for inc in incamera %}
@@ -22,15 +20,14 @@
       <td class='border_side'>{{ inc.film_life.reference}}</td>
       {% endif %}
       <td>{{ inc.camera_catalog.camera_model }}</td>
-      <td>{{ inc.film_life.film_catalog.film_ref }}</td>
-      <td>{{ inc.film_life.shoot_sensitivity }}</td>
-      <td>{{ inc.film_life.film_catalog.color }}</td>
-      <td>{{ inc.film_life.developer }}</td>
+      <td>{{ inc.film_life.film_catalog.film_ref }} ({{ inc.film_life.shoot_sensitivity }}) {{ inc.film_life.film_catalog.color }}</td>
+      <td></td>
     </tr>
     <tr>
       <td colspan='1' class='border_side'/>
-      <td colspan='2'>dev: {{ inc.film_life.develop.date }}</td>
-      <td colspan='3'>exp: {{ inc.film_life.film_catalog.expiration }}</td>
+      <td colspan='1'>dev: {{ inc.film_life.develop.date }}</td>
+      <td colspan='1'>exp: {{ inc.film_life.film_catalog.expiration }}</td>
+      <td colspan='1'>{{ inc.film_life.developer }}</td>
     </tr>
 
   {% endfor %}
