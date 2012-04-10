@@ -12,13 +12,14 @@
       <th>film</th>
       <th>ISO</th>
       <th>color</th>
-      <th>dev</th></tr>
+      <th>dev</th>
+    </tr>
   {% for inc in incamera %}
-    <tr>
+    <tr class='border_top' name='border_top'>
       {% if not inc.film_life.reference %}
-      <td>Loaded</td>
+      <td class='border_side'>Loaded</td>
       {% else %}
-      <td>{{ inc.film_life.reference}}</td>
+      <td class='border_side'>{{ inc.film_life.reference}}</td>
       {% endif %}
       <td>{{ inc.camera_catalog.camera_model }}</td>
       <td>{{ inc.film_life.film_catalog.film_ref }}</td>
@@ -27,7 +28,7 @@
       <td>{{ inc.film_life.developer }}</td>
     </tr>
     <tr>
-      <td colspan='1'/>
+      <td colspan='1' class='border_side'/>
       <td colspan='2'>dev: {{ inc.film_life.develop.date }}</td>
       <td colspan='3'>exp: {{ inc.film_life.film_catalog.expiration }}</td>
     </tr>

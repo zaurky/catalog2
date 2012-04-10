@@ -179,3 +179,10 @@ h1,h2,h3,h4,h5 {
 	color : #DDDDDD;
 	background-color: #232323;
 }
+
+tr.border_top, tr.border_top td {
+    border-top: 1px solid #666666;
+}
+td.border_side {
+   border-right: 1px solid #666666;
+}
