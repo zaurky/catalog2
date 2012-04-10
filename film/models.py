@@ -96,6 +96,7 @@ class Life(models.Model):
     removal = models.DateTimeField(default=None, null=True, blank=True)
     develop = models.DateTimeField(default=None, null=True, blank=True)
     reference = models.CharField(max_length=4, null=True, blank=True)
+    comment = models.CharField(max_length=1024, null=True, blank=True)
 
     @classmethod
     def next_reference(cls):
