@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}InCameras{% endblock %}
+
+{% block content %}
+
+{% if incamera %}
+  <table border='0'>
+    <tr>
+      <th>Ref</th>
+      <th>camera</th>
+      <th>film</th>
+      <th>ISO</th>
+      <th>color</th>
+      <th>dev</th></tr>
+  {% for inc in incamera %}
+    <tr>
+      {% if not inc.film_life.reference %}
+      <td>Loaded</td>
+      {% else %}
+      <td>{{ inc.film_life.reference}}</td>
+      {% endif %}
+      <td>{{ inc.camera_catalog.camera_model }}</td>
+      <td>{{ inc.film_life.film_catalog.film_ref }}</td>
+      <td>{{ inc.film_life.shoot_sensitivity }}</td>
+      <td>{{ inc.film_life.film_catalog.color }}</td>
+      <td>{{ inc.film_life.developer }}</td>
+    </tr>
+    <tr>
+      <td colspan='1'/>
+      <td colspan='2'>dev: {{ inc.film_life.develop.date }}</td>
+      <td colspan='3'>exp: {{ inc.film_life.film_catalog.expiration }}</td>
+    </tr>
+
+  {% endfor %}
+{% else %}
+    <p>aucune pellicule n'a été mise dans une camera</p>
+{% endif %}
+{% endblock %}

@@ -90,3 +90,11 @@ def incamera_unload(request, camera_catalog_id):
     return render_to_response('incamera/unloaded.html', {
         'incamera': incamera,
     })
+
+def incamera(request):
+    incamera = list(InCamera.objects.all())
+    incamera.sort(lambda a,b: cmp(a.film_life.reference, b.film_life.reference))
+    return render_to_response('incamera/list.html', {
+        'incamera': incamera,
+    })
+
