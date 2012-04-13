@@ -19,13 +19,22 @@
       {% else %}
       <td class='border_side'>{{ inc.film_life.reference}}</td>
       {% endif %}
-      <td>{{ inc.camera_catalog.camera_model }}</td>
-      <td>{{ inc.film_life.film_catalog.film_ref }} ({{ inc.film_life.shoot_sensitivity }}) {{ inc.film_life.film_catalog.color }}</td>
+      <td><a href='/camera/catalog/{{ inc.camera_catalog.pk }}'>{{ inc.camera_catalog.camera_model }}</a></td>
+      <td>
+        <a href='/film/catalog/{{ inc.film_life.film_catalog.pk }}'>
+        {{ inc.film_life.film_catalog.film_ref }} ({{ inc.film_life.shoot_sensitivity }}) {{ inc.film_life.film_catalog.color }}</td>
+        </a>
+      {% if inc.film_life.comment %}
+      <td>{{ inc.film_life.comment }}</td>
+      {% else %}
       <td></td>
+      {% endif %}
     </tr>
     <tr>
       <td colspan='1' class='border_side'/>
-      <td colspan='1'>dev: {{ inc.film_life.develop.date }}</td>
+      <td colspan='1'>
+        <a href='/admin/film/life/{{ inc.film_life.pk }}'>dev: {{ inc.film_life.develop.date }}</a>
+      </td>
       <td colspan='1'>exp: {{ inc.film_life.film_catalog.expiration }}</td>
       <td colspan='1'>{{ inc.film_life.developer }}</td>
     </tr>
