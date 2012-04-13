@@ -5,7 +5,7 @@
 {% block content %}
 {% if catalog_list %}
     <table>
-        <tr><th>Camera</th><th>Action</th></tr>
+        <tr><th><a href='/admin/camera/catalog/add'>Camera</a></th><th>Action</th></tr>
     {% for catalog in catalog_list %}
         <tr>
           <td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
