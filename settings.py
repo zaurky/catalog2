@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Zaurky', 'zaurky@zeb.re'),
 )
 
 MANAGERS = ADMINS
@@ -101,8 +101,6 @@ ROOT_URLCONF = 'catalog2.urls'
 TEMPLATE_DIRS = (
     "/home/olivier/Perso/catalog2/catalog2/templates",
     "/home/olivier/Perso/catalog2/catalog2/camera/templates",
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
@@ -117,10 +115,7 @@ INSTALLED_APPS = (
     'catalog2.film',
     'catalog2.contact',
     'catalog2.develop',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
