@@ -7,6 +7,7 @@ from catalog2.camera.models import Catalog as CameraCatalog
 
 # Create your models here.
 
+
 class Brand(models.Model):
     name = models.CharField(max_length=255)
 
