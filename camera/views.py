@@ -1,7 +1,5 @@
-from django.template import Context, loader
 from catalog2.camera.models import Catalog
 from catalog2.film.models import InCamera as FilmInCamera
-from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -38,4 +36,3 @@ def catalog_edit(request, catalog_id):
 @login_required
 def catalog_update(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
-
