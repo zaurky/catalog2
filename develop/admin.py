@@ -1,4 +1,4 @@
-from catalog2.product.models import Product, ProductToLife
+from catalog2.develop.models import Product, ProductToLife
 from django.contrib import admin
 
 admin.site.register(Product)
