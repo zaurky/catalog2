@@ -49,9 +49,5 @@ urlpatterns = patterns('',
         'film.views.incamera_film_unload'),
     url(r'^film/incamera/develop/(?P<life_id>\d+)/?$',
         'film.views.incamera_develop'),
-#    url(r'^film/incamera/develop/(?P<life_id>\d+)/(?P<contact_id>\d+)/?$',
-#        'film.views.incamera_developed'),
-
-    url(r'^film/incamera/developed/?$',
-        'film.views.incamera_developed'),
+    url(r'^film/incamera/developed/?$', 'film.views.incamera_developed'),
 )
