@@ -46,6 +46,10 @@ class Catalog(models.Model):
     def loaded(self):
         return (self.incamera.filter(loaded=True).all() or [None])[0]
 
+    @property
+    def num_films(self):
+        return self.incamera.count()
+
     def __unicode__(self):
         label = unicode(self.camera_model)
         label += " : %s" % self.sn if self.sn else ''

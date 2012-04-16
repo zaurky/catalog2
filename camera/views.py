@@ -10,9 +10,11 @@ def catalog_list(request):
     catalog_list = Catalog.objects
 
     if request.GET.get('best'):
-        catalog_list = catalog_list.filter(incamera__isnull=False)
-
-    catalog_list = catalog_list.all()
+        catalog_list = list(catalog_list.filter(incamera__isnull=False).distinct())
+        catalog_list.sort(lambda b,a:
+            cmp(a.num_films, b.num_films) or cmp(unicode(b), unicode(a)))
+    else:
+        catalog_list = catalog_list.all()
 
     if request.GET.get('loaded'):
         catalog_list = filter(lambda c: c.loaded, catalog_list)
