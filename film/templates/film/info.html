@@ -35,7 +35,7 @@
                 <a href="/film/incamera/develop/{{ life.id }}">devel</a>
             {% else %}
             {% if life.loaded %}
-                <a href="/film/incamera/unload/life/{{ life.id }}">unload</a>
+                <a href="/film/incamera/unload/life/{{ life.id }}">unload from {{ life.loaded.camera_catalog }}</a>
             {% else %}
                 <a href="/film/incamera/load/life/{{ life.id }}">load</a>
             {% endif %}
