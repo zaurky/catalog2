@@ -13,6 +13,10 @@ def catalog_list(request):
         catalog_list = catalog_list.filter(incamera__isnull=False)
 
     catalog_list = catalog_list.all()
+
+    if request.GET.get('loaded'):
+        catalog_list = filter(lambda c: c.loaded, catalog_list)
+
     return render_to_response('camera/list.html', {
         'catalog_list': catalog_list,
     })
