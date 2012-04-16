@@ -14,7 +14,7 @@
         <tr>
           <td>{{ film_catalog }}</td>
           {% if film_catalog.remaining %}
-          <td><a href="/film/incamera/load/{{ camera_catalog.pk }}/{{ film_catalog.pk }}">load</a></td>
+          <td><a href="/film/incamera/load/{{ camera_catalog.pk }}/camera/{{ film_catalog.pk }}">load</a></td>
           {% else %}
           <td></td>
           {% endif %}
