@@ -105,6 +105,26 @@ class Life(models.Model):
             int(Life.objects.filter(reference__isnull=False).order_by('-reference')[0].reference)
             + 1)
 
+    @property
+    def unloaded(self):
+        if self.incamera.count():
+            incamera = self.incamera.get()
+            if not incamera.loaded:
+                return incamera
+        return None
+
+    @property
+    def loaded(self):
+        if self.incamera.count():
+            incamera = self.incamera.get()
+            if incamera.loaded:
+                return incamera
+        return None
+
+    @property
+    def developed(self):
+        return self.unloaded and self.develop is not None
+
     def load(self):
         self.insertion = datetime.now()
 
@@ -112,8 +132,9 @@ class Life(models.Model):
         self.removal = datetime.now()
         self.reference = self.next_reference()
 
-#    def develop(self):
-#        self.develop = datetime.now()
+    def devel(self, contact):
+        self.develop = datetime.now()
+        self.developer = contact
 
     def __unicode__(self):
         return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if
