@@ -23,8 +23,26 @@
 
 {% if filmlife %}
     <table>
+        <tr><th>Life</th><th>Actions</th></tr>
     {% for life in filmlife %}
-	<tr><td><a href="/film/life/{{ life.id }}">{{ life }}</a></td></tr>
+	<tr>
+            <td><a href="/film/life/{{ life.id }}">{{ life }}</a></td>
+            <td>
+            {% if life.developed %}
+                <a href="/"></a>
+            {% else %}
+            {% if life.unloaded %}
+                <a href="/film/incamera/develop/{{ life.id }}">devel</a>
+            {% else %}
+            {% if life.loaded %}
+                <a href="/film/incamera/unload/life/{{ life.id }}">unload</a>
+            {% else %}
+                <a href="/film/incamera/load/life/{{ life.id }}">load</a>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            </td>
+        </tr>
     {% endfor %}
     </table>
 {% else %}
