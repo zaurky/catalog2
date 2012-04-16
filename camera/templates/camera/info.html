@@ -27,9 +27,9 @@
 
 <hr/>
 {% if catalog.loaded %}
-    {{ catalog.loaded }}
+    {{ catalog.loaded.film_life }} <a href="/film/incamera/unload/camera/{{ catalog.pk }}">(unload)</a>
 {% else %}
-    <p>cet appareil est vide</p>
+    <p>cet appareil est vide <a href="/film/incamera/load/camera/{{ catalog.pk }}">(load)</a></p>
 {% endif %}
 
 <hr/>
