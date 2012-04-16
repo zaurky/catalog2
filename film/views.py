@@ -1,6 +1,9 @@
-from django.template import Context, loader
+from django.template import Context, loader, RequestContext
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
 from catalog2.film.models import Catalog, Life, InCamera
 from catalog2.camera.models import Catalog as CameraCatalog
+from catalog2.contact.models import Developer
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
@@ -54,26 +57,7 @@ def incamera_camera_load(request, camera_catalog_id):
     })
 
 @login_required
-def incamera_load(request, camera_catalog_id, film_catalog_id):
-    camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
-    film_catalog = get_object_or_404(Catalog, pk=film_catalog_id)
-    if not film_catalog.remaining:
-        raise
-
-    life = film_catalog.remaining[0]
-    incamera = InCamera(film_life=life, camera_catalog=camera_catalog)
-    incamera.load()
-    incamera.film_life.load()
-
-    incamera.save()
-    incamera.film_life.save()
-
-    return render_to_response('incamera/loaded.html', {
-        'incamera': incamera,
-    })
-
-@login_required
-def incamera_unload(request, camera_catalog_id):
+def incamera_camera_unload(request, camera_catalog_id):
     camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
     if not camera_catalog.loaded:
         raise
@@ -90,6 +74,84 @@ def incamera_unload(request, camera_catalog_id):
     return render_to_response('incamera/unloaded.html', {
         'incamera': incamera,
     })
+
+@login_required
+def incamera_film_load(request, life_id):
+    life = get_object_or_404(Life, pk=life_id)
+    camera_catalogs = CameraCatalog.objects.all()
+    return render_to_response('incamera/load_camera.html', {
+        'life': life,
+        'camera_catalogs': camera_catalogs,
+    })
+
+@login_required
+def incamera_film_unload(request, life_id):
+    life = get_object_or_404(Life, pk=life_id)
+    if not life.loaded:
+        raise
+
+    incamera = life.loaded
+    incamera.unload(life.film_catalog.poses)
+    life.unload()
+
+    incamera.save()
+    life.save()
+
+    return render_to_response('incamera/unloaded.html', {
+        'incamera': incamera,
+    })
+
+@login_required
+def incamera_load(request, camera_catalog_id, film_catalog_id=None, life_id=None):
+    camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
+    if film_catalog_id:
+        film_catalog = get_object_or_404(Catalog, pk=film_catalog_id)
+        if not film_catalog.remaining:
+            raise
+
+        life = film_catalog.remaining[0]
+    elif life_id:
+        life = get_object_or_404(Life, pk=life_id)
+    else:
+        raise
+
+    incamera = InCamera(film_life=life, camera_catalog=camera_catalog)
+    incamera.load()
+    incamera.film_life.load()
+
+    incamera.save()
+    incamera.film_life.save()
+
+    return render_to_response('incamera/loaded.html', {
+        'incamera': incamera,
+    })
+
+@login_required
+def incamera_develop(request, life_id):
+    life = get_object_or_404(Life, pk=life_id)
+    contacts = Developer.objects.all()
+    return render_to_response('incamera/develop.html',
+        context_instance=RequestContext(request, {
+            'life': life,
+            'contacts': contacts,
+    }))
+
+
+@login_required
+@csrf_protect
+def incamera_developed(request): #, life_id, contact_id):
+    life_id = request.POST.get('life_id')
+    contact_id = request.POST.get('contact_id')
+
+    life = get_object_or_404(Life, pk=life_id)
+    contact = get_object_or_404(Developer, pk=contact_id)
+    life.devel(contact)
+    life.save()
+    return render_to_response('incamera/developed.html',
+        context_instance=RequestContext(request, {
+            'life': life,
+            'contact': contact,
+    }))
 
 def incamera(request):
     incamera = list(InCamera.objects.all())
