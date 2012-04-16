@@ -2,15 +2,15 @@
 
 . conf/catalog.sh
 
-for T in $TABLES; do
-    sqlite3 db/catalog2.sqlite3 "DROP TABLE $T;"
+for TABLE in $TABLES; do
+    sqlite3 db/catalog2.sqlite3 "DROP TABLE $TABLE;"
 done
 
 python manage.py syncdb
 
-for T in $TABLES; do
-    T=`echo $T | sed -e 's/.*_//'`
-    echo $T
-    python manage.py loaddata $T
+for TABLE in $TABLES; do
+    TABLE=`echo $TABLE | sed -e 's/.*_//'`
+    echo $TABLE
+    python manage.py loaddata $TABLE
 done
 
