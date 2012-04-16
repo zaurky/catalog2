@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}load film in camera : {{ life }}{% endblock %}
+
+{% block content %}
+<h1>load film in camera : {{ life }}</h1>
+
+<hr/>
+
+{% if camera_catalogs %}
+    <table>
+        <tr><th>Film</th><th>Action</th></tr>
+    {% for camera_catalog in camera_catalogs %}
+        <tr>
+          <td>{{ camera_catalog }}</td>
+          {% if not camera_catalog.loaded %}
+          <td><a href="/film/incamera/load/{{ camera_catalog.pk }}/film/{{ life.pk }}">load</a></td>
+          {% else %}
+          <td></td>
+          {% endif %}
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>please add cameras</p>
+{% endif %}
+{% endblock %}

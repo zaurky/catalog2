@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}develop film : {{ life }}{% endblock %}
+
+{% block content %}
+<h1>develop film : {{ life }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if contacts %}
+<form action="/film/incamera/developed" method="post">{% csrf_token %}
+    {{ life }} was developed by :
+    <input type='hidden' name='life_id' id='life_id' value='{{ life.id }}' />
+    <select name='contact_id' id='contact_id'>
+    {% for contact in contacts %}
+        <option value='{{ contact.id }}'>{{ contact }}</>
+    {% endfor %}
+    </select>
+    <input type="submit" value="Ok" />
+</form>
+{% else %}
+    <p>please add developers</p>
+{% endif %}
+{% endblock %}
