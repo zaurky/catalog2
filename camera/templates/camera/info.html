@@ -44,10 +44,14 @@
 {% endif %}
 
 <hr/>
-{% if encyclopedia %}
+{% if encyclopedias %}
     <table>
-        {% for e in encyclopedia %}
+        {% for e in encyclopedias %}
+            {% if e.key = 'url' %}
+            <tr><td colspan='2'><a href='{{ e.value }}'>{{ e.value }}</a></td></tr>
+            {% else %}
             <tr><td>{{ e.key }}</td><td>{{ e.value }}</td></tr>
+            {% endif %}
         {% endfor %}
     </table>
     <hr/>

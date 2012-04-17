@@ -30,6 +30,7 @@ def catalog_info(request, catalog_id):
     return render_to_response('camera/info.html', {
         'catalog': catalog,
         'history': history,
+        'encyclopedias': catalog.camera_model.encyclopedia,
     })
 
 @login_required

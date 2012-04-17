@@ -20,6 +20,10 @@ class Model(models.Model):
     def __unicode__(self):
         return "%s %s" % (self.camera_brand, self.name)
 
+    @property
+    def encyclopedia(self):
+        return Encyclopedia.objects.filter(camera_model=self)
+
 
 class Catalog(models.Model):
     camera_model = models.ForeignKey(Model)
