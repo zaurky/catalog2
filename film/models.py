@@ -140,6 +140,10 @@ class Life(models.Model):
         return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if
             self.incamera.count() else "")
 
+    def __cmp__(self, other):
+        return cmp(self.reference, other.reference) and \
+            cmp(self, other)
+
 
 class InCamera(models.Model):
     film_life = models.ForeignKey(Life, related_name='incamera')
@@ -159,3 +163,6 @@ class InCamera(models.Model):
         return unicode(self.film_life) + \
             (' in ' if self.loaded else ' from ') + \
             unicode(self.camera_catalog)
+
+    def __cmp__(self, other):
+        return cmp(self.film_life.reference, other.film_life.reference)

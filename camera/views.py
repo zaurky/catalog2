@@ -26,7 +26,8 @@ def catalog_list(request):
 @login_required
 def catalog_info(request, catalog_id):
     catalog = get_object_or_404(Catalog, pk=catalog_id)
-    history = FilmInCamera.objects.filter(camera_catalog=catalog, loaded=0)
+    history = list(FilmInCamera.objects.filter(camera_catalog=catalog, loaded=0))
+    history.sort()
     return render_to_response('camera/info.html', {
         'catalog': catalog,
         'history': history,
