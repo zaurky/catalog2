@@ -9,7 +9,7 @@ done
 python manage.py syncdb
 
 for TABLE in $TABLES; do
-    TABLE=`echo $TABLE | sed -e 's/.*_//'`
+    TABLE=`echo $TABLE | sed -e 's/[^_]*_//'`
     echo $TABLE
     python manage.py loaddata $TABLE
 done
