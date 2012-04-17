@@ -5,6 +5,7 @@ from catalog2.film.models import Life
 
 
 class Product(models.Model):
+    film_life = models.ManyToManyField(Life, related_name='products')
     name = models.CharField(max_length=100)
     buy_date = models.DateTimeField(null=True, blank=True)
     opening_date = models.DateTimeField(null=True, blank=True)
@@ -12,8 +13,3 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name
-
-
-class ProductToLife(models.Model):
-    product = models.ForeignKey(Product)
-    film_life = models.ForeignKey(Life)

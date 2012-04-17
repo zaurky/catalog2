@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . conf/catalog.sh
-MODELS=`echo $TABLES | sed -e 's/_/./g'`
+MODELS=`echo $TABLES | sed -e 's/#/./g'`
 
 for model in $MODELS; do
     app=`echo $model | sed -e 's/\..*//'`
