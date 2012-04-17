@@ -3,6 +3,7 @@
 . conf/catalog.sh
 
 for TABLE in $TABLES; do
+    TABLE=`echo $TABLE | sed -e 's/#/_/g'`
     sqlite3 db/catalog2.sqlite3 "DROP TABLE $TABLE;"
 done
 
