@@ -23,6 +23,17 @@
     <tr><td>price</td><td>{{ catalog.price }}</td></tr>
     <tr><td>serial number</td><td>{{ catalog.sn }}</td></tr>
     <tr><td>comment</td><td>{{ catalog.comment }}</td></tr>
+    {% for e in encyclopedias %}
+        {% if e.key != 'url' %}
+    <tr><td>{{ e.key }}</td><td>{{ e.value }}</td></tr>
+        {% endif %}
+    {% endfor %}
+    {% for e in encyclopedias %}
+        {% if e.key = 'url' %}
+    <tr><td colspan='2'><a href='{{ e.value }}'>{{ e.value }}</a></td></tr>
+        {% endif %}
+    {% endfor %}
+
 </table>
 
 <hr/>
@@ -44,18 +55,6 @@
 {% endif %}
 
 <hr/>
-{% if encyclopedias %}
-    <table>
-        {% for e in encyclopedias %}
-            {% if e.key = 'url' %}
-            <tr><td colspan='2'><a href='{{ e.value }}'>{{ e.value }}</a></td></tr>
-            {% else %}
-            <tr><td>{{ e.key }}</td><td>{{ e.value }}</td></tr>
-            {% endif %}
-        {% endfor %}
-    </table>
-    <hr/>
-{% endif %}
 
 <br/>
 <br/>
