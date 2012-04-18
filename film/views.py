@@ -44,7 +44,8 @@ def life_view(request, life_id):
     life = get_object_or_404(Life, pk=life_id)
     return render_to_response('film/life_info.html', {
         'life': life,
-        'incamera': (life.incamera.all() or [None])[0]
+        'incamera': (life.incamera.all() or [None])[0],
+        'products': life.products.all()
     })
 
 @login_required
