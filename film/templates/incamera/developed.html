@@ -3,6 +3,7 @@
 {% block title %}film developed{% endblock %}
 
 {% block content %}
-{{ life }} developed by {{ contact }}
+<a href='/film/life/{{ life.pk }}'>{{ life }}</a><br/>
+developed by {{ contact }}
 {% endblock %}
 
