@@ -132,9 +132,11 @@ class Life(models.Model):
         self.removal = datetime.now()
         self.reference = self.next_reference()
 
-    def devel(self, contact):
+    def devel(self, contact, iso=None):
         self.develop = datetime.now()
         self.developer = contact
+        if iso:
+            self.dev_sensitivity = iso
 
     def __unicode__(self):
         return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if

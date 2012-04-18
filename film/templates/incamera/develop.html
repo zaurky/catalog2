@@ -11,10 +11,17 @@
 <form action="/film/incamera/developed" method="post">{% csrf_token %}
 <input type='hidden' name='life_id' id='life_id' value='{{ life.id }}' />
 <table>
-    <tr><td colspan='2'>{{ life }} was developed by :
+    <tr><td>{{ life }} was developed by :</td><td>
     <select name='contact_id' id='contact_id'>
     {% for contact in contacts %}
         <option value='{{ contact.id }}'>{{ contact }}</>
+    {% endfor %}
+    </select>
+    </td></tr>
+    <tr><td>Develop sensitivity :</td><td> 
+    <select name='dev_iso' id='dev_iso'>
+    {% for sens in sensitivities %}
+        <option value='{{ sens.iso }}'>{{ sens.iso }}</>
     {% endfor %}
     </select>
     </td></tr>
