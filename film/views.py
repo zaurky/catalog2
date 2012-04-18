@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_protect
 from catalog2.film.models import Catalog, Life, InCamera
 from catalog2.camera.models import Catalog as CameraCatalog
 from catalog2.contact.models import Developer
+from catalog2.develop.models import Product
 from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
@@ -135,6 +136,8 @@ def incamera_develop(request, life_id):
         context_instance=RequestContext(request, {
             'life': life,
             'contacts': contacts,
+            'products': Product.objects.all(),
+            'product_len': Product.objects.count() + 1,
     }))
 
 
@@ -143,9 +146,15 @@ def incamera_develop(request, life_id):
 def incamera_developed(request): #, life_id, contact_id):
     life_id = request.POST.get('life_id')
     contact_id = request.POST.get('contact_id')
+    products = request.POST.getlist('product')
 
     life = get_object_or_404(Life, pk=life_id)
     contact = get_object_or_404(Developer, pk=contact_id)
+    for pid in products:
+        product = get_object_or_404(Product, pk=pid)
+        product.film_life.add(life)
+        product.save()
+
     life.devel(contact)
     life.save()
     return render_to_response('incamera/developed.html',

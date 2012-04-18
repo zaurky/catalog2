@@ -9,14 +9,21 @@
 
 {% if contacts %}
 <form action="/film/incamera/developed" method="post">{% csrf_token %}
-    {{ life }} was developed by :
-    <input type='hidden' name='life_id' id='life_id' value='{{ life.id }}' />
+<input type='hidden' name='life_id' id='life_id' value='{{ life.id }}' />
+<table>
+    <tr><td colspan='2'>{{ life }} was developed by :
     <select name='contact_id' id='contact_id'>
     {% for contact in contacts %}
         <option value='{{ contact.id }}'>{{ contact }}</>
     {% endfor %}
     </select>
-    <input type="submit" value="Ok" />
+    </td></tr>
+    <tr><td rowspan='{{ product_len }}'>products</td></tr>
+    {% for product in products %}
+    <tr><td><input type='checkbox' name='product' value='{{product.pk}}'>{{ product.name }}</input></td></tr>
+    {% endfor %}
+    <tr><td colspan='2'><input type="submit" value="Ok" /></td></tr>
+</table>
 </form>
 {% else %}
     <p>please add developers</p>
