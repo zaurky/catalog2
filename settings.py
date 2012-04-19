@@ -115,6 +115,7 @@ INSTALLED_APPS = (
     'catalog2.film',
     'catalog2.contact',
     'catalog2.develop',
+    'catalog2.media',
     'django.contrib.admin',
 )
 
