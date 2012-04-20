@@ -60,7 +60,7 @@ class Catalog(models.Model):
         ('220', '220'),
         ('620', '620'),
     )
-    format = models.CharField(max_length=1, choices=FORMAT_CHOICES)
+    format = models.CharField(max_length=5, choices=FORMAT_CHOICES)
 
     @property
     def remaining(self):
