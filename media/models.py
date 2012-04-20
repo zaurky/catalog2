@@ -9,6 +9,9 @@ from catalog2.film.models import Life as FilmLife
 class Tag(models.Model):
     name = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return "%s" % (self.name)
+
 
 class Media(models.Model):
     tag = models.ManyToManyField(Tag, related_name='media')
@@ -17,13 +20,22 @@ class Media(models.Model):
     comment = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return "%s (%s)" % (self.name, self.url)
+
 
 class Camera(models.Model):
-    camera_model = models.ForeignKey(CameraModel)
+    camera_model = models.ForeignKey(CameraModel, related_name='media')
     media = models.ForeignKey(Media)
+
+    def __unicode__(self):
+        return "%s <-> %s" % (self.media.name, self.camera_model)
 
 
 class Exemple(models.Model):
     film_life = models.ForeignKey(FilmLife)
     media = models.ForeignKey(Media)
+
+    def __unicode__(self):
+        return "%s <-> %s" % (self.media.name, self.film_life.film_catalog)
 
