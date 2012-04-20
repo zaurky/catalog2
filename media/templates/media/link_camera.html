@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}link media : {{ media }}{% endblock %}
+
+{% block content %}
+<h1>link media : {{ media }}</h1>
+
+<hr/>
+
+{% if camera_catalogs %}
+    <table>
+        <tr><th>Camera</th></tr>
+    {% for camera_catalog in camera_catalogs %}
+        <tr><td><a href='/media/link/camera/{{ media.pk }}/{{ camera_catalog.pk }}'>{{ camera_catalog }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>please add cameras</p>
+{% endif %}
+{% endblock %}

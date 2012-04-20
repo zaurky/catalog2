@@ -53,5 +53,13 @@ urlpatterns = patterns('',
 
     # media
     url(r'^media/?$', 'media.views.media_list'),
-    url(r'^media/media/(?P<media_id>\d+)?$', 'media.views.media_info'),
+    url(r'^media/media/(?P<media_id>\d+)/?$', 'media.views.media_info'),
+    url(r'^media/link/camera/(?P<media_id>\d+)/?$',
+        'media.views.media_link_camera'),
+    url(r'^media/link/exemple/(?P<media_id>\d+)/?$',
+        'media.views.media_link_exemple'),
+    url(r'^media/link/camera/(?P<media_id>\d+)/(?P<catalog_id>\d+)/?$',
+        'media.views.media_linked_camera'),
+    url(r'^media/link/exemple/(?P<media_id>\d+)/(?P<life_id>\d+)/?$',
+        'media.views.media_linked_exemple'),
 )

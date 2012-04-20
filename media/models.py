@@ -42,4 +42,3 @@ class Exemple(models.Model):
 
     def __unicode__(self):
         return "%s <-> %s" % (self.media.name, self.film_life.film_catalog)
-

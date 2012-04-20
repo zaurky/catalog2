@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}link media : {{ media }}{% endblock %}
+
+{% block content %}
+<h1>link media : {{ media }}</h1>
+
+<hr/>
+
+{% if history %}
+    <table>
+        <tr><th>Film</th></tr>
+    {% for life in history %}
+        <tr><td><a href='/media/link/exemple/{{ media.pk }}/{{ life.pk }}'>{{ life }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>please shot film</p>
+{% endif %}
+{% endblock %}
+
