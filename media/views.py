@@ -15,10 +15,14 @@ def media_list(request):
 @login_required
 def media_info(request, media_id):
     media = get_object_or_404(Media, pk=media_id)
+    previousm = (Media.objects.filter(pk=(int(media_id)-1)) or [None])[0]
+    nextm = (Media.objects.filter(pk=(int(media_id)+1)) or [None])[0]
     return render_to_response('media/info.html', {
         'media': media,
         'cameras': Camera.objects.all(),
         'exemples': Exemple.objects.all(),
+        'previous': previousm,
+        'next': nextm,
     })
 
 @login_required

@@ -3,7 +3,15 @@
 {% block title %}Media info : {{ media.name }}{% endblock %}
 
 {% block content %}
-<h1>{{ media }}</h1>
+<h1>
+{% if previous %}
+<a href='/media/media/{{ previous.pk }}'>&lt;</a>&nbsp;
+{% endif %}
+{{ media }}
+{% if next %}
+&nbsp;<a href='/media/media/{{ next.pk }}'>&gt;</a>
+{% endif %}
+</h1>
 
 <hr/>
 <table>
