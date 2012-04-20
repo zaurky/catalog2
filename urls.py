@@ -50,4 +50,8 @@ urlpatterns = patterns('',
     url(r'^film/incamera/develop/(?P<life_id>\d+)/?$',
         'film.views.incamera_develop'),
     url(r'^film/incamera/developed/?$', 'film.views.incamera_developed'),
+
+    # media
+    url(r'^media/?$', 'media.views.media_list'),
+    url(r'^media/media/(?P<media_id>\d+)?$', 'media.views.media_info'),
 )

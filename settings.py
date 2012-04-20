@@ -101,6 +101,8 @@ ROOT_URLCONF = 'catalog2.urls'
 TEMPLATE_DIRS = (
     "/home/olivier/Perso/catalog2/catalog2/templates",
     "/home/olivier/Perso/catalog2/catalog2/camera/templates",
+    "/home/olivier/Perso/catalog2/catalog2/film/templates",
+    "/home/olivier/Perso/catalog2/catalog2/media/templates",
     # Don't forget to use absolute paths, not relative paths.
 )
 

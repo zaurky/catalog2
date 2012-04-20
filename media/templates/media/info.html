@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Media info : {{ media.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ media }}</h1>
+
+<hr/>
+<table>
+    <tr><td>{{ media.name }}</td></tr>
+    <tr><td>{{ media.comment }}</td></tr>
+    <tr><td>
+    {% for tag in media.tags %}{{ media.tag }}, {%endfor %}
+    </td></tr>
+    <tr><td><img width='800' height='800' src='{{ media.url }}'/></td></tr>
+</table>
+{% endblock %}

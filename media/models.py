@@ -20,6 +20,10 @@ class Media(models.Model):
     comment = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
+    @property
+    def tags(self):
+        return self.tag.objects.all()
+
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.url)
 
