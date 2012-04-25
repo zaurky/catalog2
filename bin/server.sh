@@ -1,4 +1,5 @@
 #!/bin/sh
 
-python manage.py runserver
+. conf/catalog.sh
+python manage.py runserver $SERVER_OPT
 
