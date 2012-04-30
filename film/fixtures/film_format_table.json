@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "film.format", "fields": {"name": "24x36"}}, {"pk": 2, "model": "film.format", "fields": {"name": "120"}}, {"pk": 3, "model": "film.format", "fields": {"name": "220"}}, {"pk": 4, "model": "film.format", "fields": {"name": "620"}}]

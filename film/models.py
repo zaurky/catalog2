@@ -30,6 +30,10 @@ class Sensitivity(models.Model):
         return "%s ISO" % self.iso
 
 
+class Format(models.Model):
+    name = models.CharField(max_length=5)
+
+
 class Catalog(models.Model):
     film_ref = models.ForeignKey(Ref)
     film_sensitivity = models.ForeignKey(Sensitivity)
