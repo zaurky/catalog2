@@ -33,10 +33,14 @@ class Sensitivity(models.Model):
 class Format(models.Model):
     name = models.CharField(max_length=5)
 
+    def __unicode__(self):
+        return "%s" % self.name
+
 
 class Catalog(models.Model):
     film_ref = models.ForeignKey(Ref)
     film_sensitivity = models.ForeignKey(Sensitivity)
+    film_format = models.ForeignKey(Format)
 
     comment = models.CharField(max_length=1024, null=True, blank=True)
     quantity = models.IntegerField(default=1)
@@ -57,14 +61,6 @@ class Catalog(models.Model):
         ('diapo', 'diapo'),
     )
     color = models.CharField(max_length=10, choices=COLOR_CHOICES)
-
-    FORMAT_CHOICES = (
-        ('24x36', '24x36'),
-        ('120', '120'),
-        ('220', '220'),
-        ('620', '620'),
-    )
-    format = models.CharField(max_length=5, choices=FORMAT_CHOICES)
 
     @property
     def remaining(self):
