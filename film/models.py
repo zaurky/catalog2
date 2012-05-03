@@ -4,6 +4,7 @@ from datetime import datetime
 from django.db import models
 from catalog2.contact.models import Developer
 from catalog2.camera.models import Catalog as CameraCatalog
+from catalog2.camera.models import Model as CameraModel
 
 # Create your models here.
 
@@ -32,6 +33,8 @@ class Sensitivity(models.Model):
 
 class Format(models.Model):
     name = models.CharField(max_length=5)
+    cameras = models.ManyToManyField(CameraModel,
+        related_name='possible_film_format', null=True, blank=True)
 
     def __unicode__(self):
         return "%s" % self.name
