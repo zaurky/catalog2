@@ -52,10 +52,13 @@ def life_view(request, life_id):
 @login_required
 def incamera_camera_load(request, camera_catalog_id):
     camera_catalog = get_object_or_404(CameraCatalog, pk=camera_catalog_id)
-    film_catalogs = Catalog.objects.all()
+    film_catalogs = set()
+    for film_format in camera_catalog.camera_model.possible_film_format.all():
+        film_catalogs.update(film_format.catalog_set.all())
+
     return render_to_response('incamera/load_film.html', {
         'camera_catalog': camera_catalog,
-        'film_catalogs': film_catalogs,
+        'film_catalogs': list(film_catalogs),
     })
 
 @login_required
