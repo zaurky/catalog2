@@ -1,0 +1,29 @@
+<VirtualHost *:80>
+  ServerAdmin admin@site.com
+  ServerName catalog.site.com
+
+  CustomLog /var/log/apache2/catalog.access_log combined
+  ErrorLog /var/log/apache2/catalog.error_log
+
+  Alias /static/ $PROJECTHOME/catalog2/static/
+
+    <IfModule mod_wsgi.c>
+        WSGIDaemonProcess catalog \
+            threads=1 \
+            processes=2 \
+            maximum-requests=1000 \
+            display-name=catalog \
+            inactivity-timeout=100 \
+            deadlock-timeout=300 \
+            python-path=$PROJECTHOME
+
+       WSGIApplicationGroup catalog
+       WSGIProcessGroup catalog
+       WSGIScriptReloading On
+
+       WSGIScriptAlias /      $PROJECTHOME/catalog2/catalog.wsgi
+    </IfModule>
+
+     WSGIImportScript $PROJECTHOME/catalog2/catalog.wsgi process-group=catalog application-group=catalog
+</VirtualHost>
+
