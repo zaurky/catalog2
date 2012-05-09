@@ -4,3 +4,5 @@
 *.bkp
 catalog2.sqlite3
 camera/static/icons
+static/icons
+static/styles.css
