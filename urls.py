@@ -35,7 +35,7 @@ urlpatterns = patterns('',
     url(r'^film/catalog/(?P<catalog_id>\d+)/update/?$',
         'catalog2.film.views.catalog_update'),
 
-    url(r'^film/life/(?P<life_id>\d+)/?$', 'film.views.life_view'),
+    url(r'^film/life/(?P<life_id>\d+)/?$', 'catalog2.film.views.life_view'),
 
     url(r'^film/incamera/?$', 'catalog2.film.views.incamera'),
     url(r'^film/incamera/load/camera/(?P<camera_catalog_id>\d+)/?$',
