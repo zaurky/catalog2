@@ -70,8 +70,8 @@ class Catalog(models.Model):
         return self.lifes.filter(incamera=None).all()
 
     def __unicode__(self):
-        return "%s (%s) [%s]" % (
-            self.film_ref, self.film_sensitivity, len(self.remaining) or 'X')
+        return "%s (%s %s) [%s]" % (
+            self.film_ref, self.film_sensitivity, self.expiration, len(self.remaining) or 'X')
 
     def save(self, *args, **kargs):
         ret = super(Catalog, self).save(*args, **kargs)
