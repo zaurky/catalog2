@@ -1,0 +1,4 @@
+{% extends "ajax.html" %}
+{% for catalog in catalog_list %}
+<option id='{{ catalog.pk }}' name='{{ catalog.pk }}' {% if select = catalog.pk %}select{% endif %}>{{ catalog }}</option>
+{% endfor %}
