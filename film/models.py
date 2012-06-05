@@ -141,6 +141,17 @@ class Life(models.Model):
         if iso:
             self.dev_sensitivity = iso
 
+    def clean(self):
+        '''should be called when linked by mistake'''
+        self.shoot_sensitivity = None
+        self.dev_sensitivity = None
+        self.developer = None
+        self.insertion = None
+        self.removal = None
+        self.develop = None
+        self.reference = None
+        self.comment = None
+
     def __unicode__(self):
         return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if
             self.incamera.count() else "")
