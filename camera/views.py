@@ -19,7 +19,11 @@ def catalog_list(request):
     if request.GET.get('loaded'):
         catalog_list = filter(lambda c: c.loaded, catalog_list)
 
-    return render_to_response('camera/list.html', {
+    template = 'list.html'
+    if request.is_ajax():
+        template = 'ajax_%s' % template
+
+    return render_to_response('camera/%s' % template, {
         'catalog_list': catalog_list,
     })
 
