@@ -4,14 +4,14 @@
 
 {% block content %}
 
-<ul>
-<li><a href='/camera/catalog'>Camera list</a></li>
-<li><a href='/film/catalog'>Film list</a></li>
-<li><a href='/film/incamera'>History</a></li>
-<li><a href='/film/action'>Actions on films</a></li>
-<li><a href='/camera/catalog?best=1'>Camera best</a></li>
-<li><a href='/admin'>Administration</a></li>
-<li><a href='/media'>Media</a></li>
-</ul>
+<table>
+<tr><td><a href='/camera/catalog'><img src='static/img/bouton_camera.png'/></a></td></tr>
+<tr><td><a href='/film/catalog'><img src='static/img/bouton_film.png'/></a></td></tr>
+<tr><td><a href='/film/incamera'><img src='static/img/bouton_history.png'/></a></td></tr>
+<tr><td><a href='/film/action'><img src='static/img/bouton_action.png'/></a></td></tr>
+<tr><td><a href='/camera/catalog?best=1'><img src='static/img/bouton_best.png'/></a></td></tr>
+<tr><td><a href='/admin'><img src='static/img/bouton_admin.png'/></a></td></tr>
+<tr><td><a href='/media'><img src='static/img/bouton_media.png'/></a></td></tr>
+</table>
 
 {% endblock %}
