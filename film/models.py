@@ -151,6 +151,16 @@ class Life(models.Model):
         self.develop = None
         self.reference = None
         self.comment = None
+        if self.incamera.count():
+            incamera = self.incamera.get()
+            incamera.delete()
+
+    @classmethod
+    def last_inserted(cls):
+        lifes = map(lambda ic:
+            ic.film_life, InCamera.objects.filter(loaded=True))
+        lifes.sort(lambda a,b: cmp(b.insertion, a.insertion))
+        return lifes[0] if lifes else None
 
     def __unicode__(self):
         return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}undo last life load : {{ life }}{% endblock %}
+
+{% block content %}
+<h1>undo last life load : {{ life }}</h1>
+
+<hr/>
+
+<p>are you sure you want to undo {{ incamera }} load ?</p>
+<a href='/film/life/undo_load/{{ life.pk }}/'>Yes</a>
+
+{% endblock %}
+

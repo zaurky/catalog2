@@ -176,3 +176,19 @@ def incamera(request):
         'incamera': incamera,
     })
 
+@login_required
+def undo_last_life_load(request, life_id=None):
+    if life_id:
+        life = get_object_or_404(Life, pk=life_id)
+        life.clean()
+        life.save()
+        return render_to_response('film/actions.html')
+    else:
+        life = Life.last_inserted()
+        if not life:
+            return render_to_response('film/actions.html')
+
+        return render_to_response('incamera/undo_last_life_load.html', {
+            'life': life,
+            'incamera': life.incamera.get().camera_catalog,
+        })

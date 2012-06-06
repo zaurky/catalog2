@@ -55,6 +55,13 @@ urlpatterns = patterns('',
     url(r'^film/incamera/developed/?$',
         'catalog2.film.views.incamera_developed'),
 
+    url(r'^film/life/undo_load/?(?P<life_id>\d+)?/?$',
+        'catalog2.film.views.undo_last_life_load'),
+
+    # film actions shortcut
+    url(r'^film/action/?', 'django.views.generic.simple.direct_to_template', {
+        'template': 'film/actions.html'}),
+
     # media
     url(r'^media/?$', 'catalog2.media.views.media_list'),
     url(r'^media/media/(?P<media_id>\d+)/?$',
