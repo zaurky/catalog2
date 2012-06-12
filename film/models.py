@@ -141,7 +141,7 @@ class Life(models.Model):
         if iso:
             self.dev_sensitivity = iso
 
-    def clean(self):
+    def reinit(self):
         '''should be called when linked by mistake'''
         self.shoot_sensitivity = None
         self.dev_sensitivity = None

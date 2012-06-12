@@ -180,7 +180,7 @@ def incamera(request):
 def undo_last_life_load(request, life_id=None):
     if life_id:
         life = get_object_or_404(Life, pk=life_id)
-        life.clean()
+        life.reinit()
         life.save()
         return render_to_response('film/actions.html')
     else:
