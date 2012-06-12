@@ -5,4 +5,5 @@
 catalog2.sqlite3
 camera/static/icons
 static/icons
+static/img
 static/styles.css
