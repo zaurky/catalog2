@@ -16,6 +16,9 @@ urlpatterns = patterns('',
     url(r'^/?$', 'django.views.generic.simple.direct_to_template', {
         'template': 'index.html'}),
 
+    # other
+    url(r'stats', 'catalog2.other.views.stats'),
+
     # cameras
     url(r'^/?$', 'catalog2.camera.views.catalog_list'),
     url(r'^camera/catalog/?$', 'catalog2.camera.views.catalog_list'),

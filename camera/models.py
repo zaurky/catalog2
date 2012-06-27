@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 from datetime import datetime
 
 from catalog2.contact.models import Contact
@@ -53,6 +54,10 @@ class Catalog(models.Model):
     @property
     def num_films(self):
         return self.incamera.count()
+
+    @classmethod
+    def total_sum(cls):
+        return cls.objects.aggregate(Sum('price'))['price__sum']
 
     def __unicode__(self):
         label = unicode(self.camera_model)

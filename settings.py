@@ -111,6 +111,7 @@ TEMPLATE_DIRS = (
     "%s/camera/templates" % ROOT_DIR,
     "%s/film/templates" % ROOT_DIR,
     "%s/media/templates" % ROOT_DIR,
+    "%s/other/templates" % ROOT_DIR,
     # Don't forget to use absolute paths, not relative paths.
 )
 
@@ -126,6 +127,7 @@ INSTALLED_APPS = (
     'catalog2.contact',
     'catalog2.develop',
     'catalog2.media',
+    'catalog2.other',
     'django.contrib.admin',
 )
 
