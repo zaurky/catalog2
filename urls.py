@@ -77,4 +77,6 @@ urlpatterns = patterns('',
         'catalog2.media.views.media_linked_camera'),
     url(r'^media/link/exemple/(?P<media_id>\d+)/(?P<life_id>\d+)/?$',
         'catalog2.media.views.media_linked_exemple'),
+    url(r'^media/upload/?$', 'catalog2.media.views.upload'),
+    url(r'^media/do_upload/?$', 'catalog2.media.views.do_upload'),
 )

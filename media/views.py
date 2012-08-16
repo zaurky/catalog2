@@ -1,3 +1,10 @@
+import os
+import distutils.dir_util
+from datetime import datetime
+from django.template import Context, loader, RequestContext
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
+from django.conf import settings
 from catalog2.media.models import *
 from catalog2.camera.models import Catalog
 from catalog2.film.models import Life, InCamera
@@ -62,3 +69,36 @@ def media_linked_exemple(request, media_id, life_id):
     return render_to_response('media/linked_exemple.html', {
         'exemple': exemple,
     })
+
+def upload(request):
+    return render_to_response('media/upload.html',
+        context_instance=RequestContext(request, {
+    }))
+
+@login_required
+@csrf_protect
+def do_upload(request):
+    for key, file in request.FILES.items():
+        path = os.path.join(settings.UPLOAD_PATH, date_path(), file.name)
+        distutils.dir_util.mkpath(os.path.dirname(path))
+        dest = open(path, 'w')
+        if file.multiple_chunks:
+            for c in file.chunks():
+                dest.write(c)
+        else:
+            dest.write(file.read())
+        dest.close()
+
+    media = Media(
+        name=request.POST['name'],
+        comment=request.POST['comment'],
+        url=os.path.join(date_path(), file.name),
+    )
+    media.save()
+    return render_to_response('media/uploaded.html', {
+        'media': media,
+    })
+
+def date_path():
+    now = datetime.now()
+    return os.path.join(str(now.year), str(now.month), str(now.day))
