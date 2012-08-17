@@ -47,8 +47,7 @@ def life_view(request, life_id):
         'life': life,
         'incamera': (life.incamera.all() or [None])[0],
         'products': life.products.all(),
-        'filmsheet':
-            life.filmsheet.all()[0].media if life.filmsheet.count() else '',
+        'filmsheet': life.filmsheet,
     })
 
 @login_required

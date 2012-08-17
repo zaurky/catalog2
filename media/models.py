@@ -45,7 +45,7 @@ class Exemple(models.Model):
 
 
 class FilmSheet(models.Model):
-    film_life = models.ForeignKey(FilmLife, related_name='filmsheet')
+    film_life = models.ForeignKey(FilmLife, related_name='filmsheet_set')
     media = models.ForeignKey(Media)
 
     def __unicode__(self):

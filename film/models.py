@@ -128,6 +128,12 @@ class Life(models.Model):
     def developed(self):
         return self.unloaded and self.develop is not None
 
+    @property
+    def filmsheet(self):
+        if self.filmsheet_set.count():
+            return self.filmsheet_set.all()[0].media
+        return None
+
     def load(self):
         self.insertion = datetime.now()
 
@@ -163,8 +169,9 @@ class Life(models.Model):
         return lifes[0] if lifes else None
 
     def __unicode__(self):
-        return "%s [%s] %s" % (self.film_catalog, self.reference, "*" if
-            self.incamera.count() else "")
+        return "%s [%s]%s%s" % (self.film_catalog, self.reference,
+            " *" if self.incamera.count() else "",
+            " (p)" if self.filmsheet else "")
 
     def __cmp__(self, other):
         return cmp(self.reference, other.reference) and \
