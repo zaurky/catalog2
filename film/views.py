@@ -46,7 +46,9 @@ def life_view(request, life_id):
     return render_to_response('film/life_info.html', {
         'life': life,
         'incamera': (life.incamera.all() or [None])[0],
-        'products': life.products.all()
+        'products': life.products.all(),
+        'filmsheet':
+            life.filmsheet.all()[0].media if life.filmsheet.count() else '',
     })
 
 @login_required

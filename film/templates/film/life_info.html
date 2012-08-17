@@ -33,6 +33,11 @@
     {% for product in products %}
     <tr><td>developed using </td><td>{{ product.name }}</td></tr>
     {% endfor %}
+    {% if filmsheet %}
+    <tr><td colspan='2'>
+      <img src='{{ filmsheet.url }}' alt='{{filmsheet.name}}'/>
+    </td></tr>
+    {% endif %}
 </table>
 
 <hr/>
