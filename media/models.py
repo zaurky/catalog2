@@ -29,7 +29,7 @@ class Media(models.Model):
 
 
 class Camera(models.Model):
-    camera_model = models.ForeignKey(CameraModel, related_name='media')
+    camera_model = models.ForeignKey(CameraModel, related_name='camera')
     media = models.ForeignKey(Media)
 
     def __unicode__(self):
@@ -37,8 +37,16 @@ class Camera(models.Model):
 
 
 class Exemple(models.Model):
-    film_life = models.ForeignKey(FilmLife)
+    film_life = models.ForeignKey(FilmLife, related_name='exemple')
     media = models.ForeignKey(Media)
 
     def __unicode__(self):
         return "%s <-> %s" % (self.media.name, self.film_life.film_catalog)
+
+
+class FilmSheet(models.Model):
+    film_life = models.ForeignKey(FilmLife, related_name='filmsheet')
+    media = models.ForeignKey(Media)
+
+    def __unicode__(self):
+        return "<%s>" % (self.film_life.reference)

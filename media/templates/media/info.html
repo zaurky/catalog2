@@ -21,16 +21,23 @@
     {% for tag in media.tags %}{{ media.tag }}, {%endfor %}
     <a href='/admin/media/tag/add/'>(+)</a>
     </td></tr>
-    <td><tr>Photo of : <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>
+    <tr><td>Photo of : <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>
         {% for camera in cameras %}
         <li>{{ camera }}</li>
         {% endfor %}
     </ul></td></tr>
-    <td><tr>Exemple of :<a href='/media/link/exemple/{{ media.pk }}'>(+)</a><ul>
+    <tr><td>Exemple of :<a href='/media/link/exemple/{{ media.pk }}'>(+)</a><ul>
         {% for exemple in exemples %}
         <li>{{ exemple }}</li>
         {% endfor %}
     </ul></td></tr>
-    <tr><td><img width='800' height='800' src='{{ media.url }}'/></td></tr>
+    <tr><td>Film Sheet of :<a href='/media/link/filmsheet/{{ media.pk }}'>(+)</a><ul>
+        {% for filmsheet in filmsheets %}
+        <li>{{ filmsheet }}</li>
+        {% endfor %}
+    </ul></td></tr>
+    <tr><td>
+      <img width='800' src='{{ media.url }}'/>
+    </td></tr>
 </table>
 {% endblock %}

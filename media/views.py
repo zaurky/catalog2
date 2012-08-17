@@ -26,8 +26,9 @@ def media_info(request, media_id):
     nextm = (Media.objects.filter(pk=(int(media_id)+1)) or [None])[0]
     return render_to_response('media/info.html', {
         'media': media,
-        'cameras': Camera.objects.all(),
-        'exemples': Exemple.objects.all(),
+        'cameras': media.camera_set.all(),
+        'exemples': media.exemple_set.all(),
+        'filmsheets': media.filmsheet_set.all(),
         'previous': previousm,
         'next': nextm,
     })
@@ -70,6 +71,26 @@ def media_linked_exemple(request, media_id, life_id):
         'exemple': exemple,
     })
 
+@login_required
+def media_link_filmsheet(request, media_id):
+    media = get_object_or_404(Media, pk=media_id)
+    incamera = list(InCamera.objects.all())
+    incamera.sort(lambda a,b: cmp(a.film_life.reference, b.film_life.reference))
+    return render_to_response('media/link_filmsheet.html', {
+        'media': media,
+        'history': map(lambda h: h.film_life, incamera)
+    })
+
+@login_required
+def media_linked_filmsheet(request, media_id, life_id):
+    media = get_object_or_404(Media, pk=media_id)
+    life = get_object_or_404(Life, pk=life_id)
+    filmsheet = FilmSheet(film_life=life, media=media)
+    filmsheet.save()
+    return render_to_response('media/linked_filmsheet.html', {
+        'filmsheet': filmsheet,
+    })
+
 def upload(request):
     return render_to_response('media/upload.html',
         context_instance=RequestContext(request, {
@@ -92,7 +113,7 @@ def do_upload(request):
     media = Media(
         name=request.POST['name'],
         comment=request.POST['comment'],
-        url=os.path.join(date_path(), file.name),
+        url=os.path.join(settings.UPLOAD_URL, date_path(), file.name),
     )
     media.save()
     return render_to_response('media/uploaded.html', {
