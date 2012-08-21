@@ -9,13 +9,20 @@
     {% for media in media_list %}
         <tr>
           <td>
-            {% if media.is_camera %}[C]&nbsp;
-            {% elif media.is_exemple %}[E]&nbsp;
-            {% elif media.is_filmsheet %}[F]&nbsp;
+            {% if media.is_camera %}<div class='camera line'>&nbsp;
+            {% elif media.is_exemple %}<div class='exemple line'>&nbsp;
+            {% elif media.is_filmsheet %}<div class='filmsheet line'>&nbsp;
+            {% else %}<div class='empty line'>&nbsp;
             {% endif %}
-            <a href="/media/media/{{ media.pk }}">{{ media }}</a></td>
-          <td>
-            <a href='/'>
+            <a href="/media/media/{{ media.pk }}">{{ media }}</a></div></td>
+          <td style='width: 100px;'>
+            {% if not media.is_linked %}
+            <table><tr>
+              <td><a href='/media/link/camera/{{ media.pk }}' class='camera icon'></a></td>
+              <td><a href='/media/link/exemple/{{ media.pk }}' class='exemple icon'></a></td>
+              <td><a href='/media/link/filmsheet/{{ media.pk }}' class='filmsheet icon'></a></td>
+            </tr></table>
+            {% endif %}
           </td>
         </tr>
     {% endfor %}

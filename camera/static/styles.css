@@ -186,3 +186,34 @@ tr.border_top, tr.border_top td {
 td.border_side {
    border-right: 1px solid #666666;
 }
+
+
+/* #### icons ##### */
+.camera {
+	display: block;
+        background: url('/static/icons/photo.png') no-repeat;
+}
+
+.exemple {
+	display: block;
+        background: url('/static/icons/exemple.png') no-repeat;
+}
+
+.filmsheet {
+	display: block;
+        background: url('/static/icons/film.png') no-repeat;
+}
+
+.empty {
+        display: block;
+}
+
+.line {
+        padding: 0px 0px 0px 24px;
+}
+
+.icon {
+        position: relative;
+	height: 24px;
+	width: 24px;
+}
