@@ -8,8 +8,15 @@
         <tr><th><a href='/admin/media/media/add/'>Media</a></th><th>Action</th></tr>
     {% for media in media_list %}
         <tr>
-          <td><a href="/media/media/{{ media.pk }}">{{ media }}</a></td>
-          <td></td>
+          <td>
+            {% if media.is_camera %}[C]&nbsp;
+            {% elif media.is_exemple %}[E]&nbsp;
+            {% elif media.is_filmsheet %}[F]&nbsp;
+            {% endif %}
+            <a href="/media/media/{{ media.pk }}">{{ media }}</a></td>
+          <td>
+            <a href='/'>
+          </td>
         </tr>
     {% endfor %}
     </table>
