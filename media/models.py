@@ -24,6 +24,22 @@ class Media(models.Model):
     def tags(self):
         return self.tag.all()
 
+    @property
+    def is_camera(self):
+        return self.camera_set.count() != 0
+
+    @property
+    def is_exemple(self):
+        return self.exemple_set.count() != 0
+
+    @property
+    def is_filmsheet(self):
+        return self.filmsheet_set.count() != 0
+
+    @property
+    def is_linked(self):
+        return not (self.is_camera or self.is_exemple or self.is_filmsheet)
+
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.comment)
 
