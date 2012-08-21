@@ -38,7 +38,7 @@ class Media(models.Model):
 
     @property
     def is_linked(self):
-        return not (self.is_camera or self.is_exemple or self.is_filmsheet)
+        return self.is_camera or self.is_exemple or self.is_filmsheet
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.comment)
