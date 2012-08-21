@@ -4,17 +4,11 @@
 
 {% block content %}
 
-<h1>{{ media.name }} was successfully uploaded</h1>
+<h1><a href='/media/media/{{ media.pk }}'>{{ media.name }}</a> was successfully uploaded</h1>
 <table>
-    <tr>
-        <td>Name : {{ media.name }}</td>
-    </tr>
-    <tr>
-        <td>Comment : {{ media.comment }}</td>
-    </tr>
-    <tr>
-        <td><img src='/static/media/{{ media.url }}'/></td>
-    </tr>
+    <tr><td>Name : {{ media.name }}</td></tr>
+    <tr><td>Comment : {{ media.comment }}</td></tr>
+    <tr><td><img src='/static/media/{{ media.url }}'/></td></tr>
 </table>
 
 {% endblock %}
