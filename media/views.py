@@ -123,3 +123,16 @@ def do_upload(request):
 def date_path():
     now = datetime.now()
     return os.path.join(str(now.year), str(now.month), str(now.day))
+
+def add_tag(request, media_id, tag_id=None):
+    media = get_object_or_404(Media, pk=media_id)
+
+    if tag_id:
+        tag = get_object_or_404(Tag, pk=tag_id)
+        media.tag.add(tag)
+        media.save()
+
+    return render_to_response('media/add_tag.html', {
+        'media': media,
+        'tags': list(set(Tag.objects.all()) - set(media.tags)),
+    })

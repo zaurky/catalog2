@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Add tags to media : {{ media.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ media }}</h1>
+
+<hr/>
+<table>
+    <tr><td>{{ media.name }}</td></tr>
+    <tr><td>{{ media.comment }}</td></tr>
+    <tr><td>Tag list : <a href='/admin/media/tag/add/'>(+)</a><br/>
+        {% for tag in media.tags %}{{ tag }}, {%endfor %}
+    </td></tr>
+    <tr><td>Add an existing : {% for tag in tags %}
+        <a href='/media/tag/add/{{ media.pk }}/{{ tag.pk }}'>{{ tag.name }}</a>, 
+    {%endfor %}</td></tr>
+</table>
+{% endblock %}

@@ -83,4 +83,6 @@ urlpatterns = patterns('',
         'catalog2.media.views.media_linked_filmsheet'),
     url(r'^media/upload/?$', 'catalog2.media.views.upload'),
     url(r'^media/do_upload/?$', 'catalog2.media.views.do_upload'),
+    url(r'^media/tag/add/(?P<media_id>\d+)(/(?P<tag_id>\d+))?/?$',
+        'catalog2.media.views.add_tag'),
 )
