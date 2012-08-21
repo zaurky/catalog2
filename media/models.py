@@ -22,7 +22,7 @@ class Media(models.Model):
 
     @property
     def tags(self):
-        return self.tag.objects.all()
+        return self.tag.all()
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.url)
