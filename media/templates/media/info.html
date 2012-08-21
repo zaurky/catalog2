@@ -27,7 +27,7 @@
         {% else %}
             <ul>
             {% for camera in cameras %}
-            <li>{{ camera }}</li>
+            <li>{{ camera.camera_model }}</li>
             {% endfor %}
         {% endif %}
     </ul></td></tr>
@@ -39,7 +39,7 @@
         {% else %}
             <ul>
             {% for exemple in exemples %}
-                <li>{{ exemple }}</li>
+                <li>{{ exemple.film_life.film_catalog }}</li>
             {% endfor %}
         {% endif %}
     </ul></td></tr>
@@ -51,7 +51,7 @@
         {% else %}
             <ul>
             {% for filmsheet in filmsheets %}
-            <li>{{ filmsheet }}</li>
+            <li>{{ filmsheet.film_life }}</li>
             {% endfor %}
         {% endif %}
     </ul></td></tr>
