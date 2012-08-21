@@ -17,7 +17,7 @@
 <table>
     <tr><td>{{ media.name }}</td></tr>
     <tr><td>{{ media.comment }}</td></tr>
-    <tr><td>Tag list : <a href='/media/tag/add/{{ media.pk }}'>(+)</a><br/>
+    <tr><td>Tag list : <a href='/media/tag/add/{{ media.pk }}'>(+)</a>
         {% for tag in media.tags %}{{ tag }}, {%endfor %}
     </td></tr>
     <tr><td>Photo of : <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>

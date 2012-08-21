@@ -25,7 +25,7 @@ class Media(models.Model):
         return self.tag.all()
 
     def __unicode__(self):
-        return "%s (%s)" % (self.name, self.url)
+        return "%s (%s)" % (self.name, self.comment)
 
 
 class Camera(models.Model):
@@ -49,4 +49,4 @@ class FilmSheet(models.Model):
     media = models.ForeignKey(Media)
 
     def __unicode__(self):
-        return "<%s>" % (self.film_life.reference)
+        return "%s <-> %s" % (self.media.name, self.film_life)
