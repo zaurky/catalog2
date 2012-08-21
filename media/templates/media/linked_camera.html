@@ -3,5 +3,5 @@
 {% block title %}media linked{% endblock %}
 
 {% block content %}
-{{ camera.media }} now linked with {{ camera.camera_model }}
+<a href='/media/media/{{ media.pk }}'>{{ camera.media }}</a> now linked with {{ camera.camera_model }}
 {% endblock %}

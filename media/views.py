@@ -48,6 +48,7 @@ def media_linked_camera(request, media_id, catalog_id):
     camera = Camera(camera_model=catalog.camera_model, media=media)
     camera.save()
     return render_to_response('media/linked_camera.html', {
+        'media': media,
         'camera': camera,
     })
 
@@ -68,6 +69,7 @@ def media_linked_exemple(request, media_id, life_id):
     exemple = Exemple(film_life=life, media=media)
     exemple.save()
     return render_to_response('media/linked_exemple.html', {
+        'media': media,
         'exemple': exemple,
     })
 
@@ -88,6 +90,7 @@ def media_linked_filmsheet(request, media_id, life_id):
     filmsheet = FilmSheet(film_life=life, media=media)
     filmsheet.save()
     return render_to_response('media/linked_filmsheet.html', {
+        'media': media,
         'filmsheet': filmsheet,
     })
 

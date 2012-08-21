@@ -3,5 +3,5 @@
 {% block title %}media linked{% endblock %}
 
 {% block content %}
-{{ filmsheet.media }} now linked with {{ filmsheet.film_life }}
+<a href='/media/media/{{ media.pk }}'>{{ filmsheet.media }}</a> now linked with {{ filmsheet.film_life }}
 {% endblock %}
