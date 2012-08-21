@@ -21,24 +21,39 @@
         {% for tag in media.tags %}{{ tag }}, {%endfor %}
     </td></tr>
     {% if not exemples and not filmsheets %}
-    <tr><td>Photo of : <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>
-        {% for camera in cameras %}
-        <li>{{ camera }}</li>
-        {% endfor %}
+    <tr><td>Photo of : 
+        {% if not cameras %}
+            <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>
+        {% else %}
+            <ul>
+            {% for camera in cameras %}
+            <li>{{ camera }}</li>
+            {% endfor %}
+        {% endif %}
     </ul></td></tr>
     {% endif %}
     {% if not cameras and not filmsheets %}
-    <tr><td>Exemple of :<a href='/media/link/exemple/{{ media.pk }}'>(+)</a><ul>
-        {% for exemple in exemples %}
-        <li>{{ exemple }}</li>
-        {% endfor %}
+    <tr><td>Exemple of :
+        {% if not exemples %}
+            <a href='/media/link/exemple/{{ media.pk }}'>(+)</a><ul>
+        {% else %}
+            <ul>
+            {% for exemple in exemples %}
+                <li>{{ exemple }}</li>
+            {% endfor %}
+        {% endif %}
     </ul></td></tr>
     {% endif %}
     {% if not cameras and not exemples %}
-    <tr><td>Film Sheet of :<a href='/media/link/filmsheet/{{ media.pk }}'>(+)</a><ul>
-        {% for filmsheet in filmsheets %}
-        <li>{{ filmsheet }}</li>
-        {% endfor %}
+    <tr><td>Film Sheet of :
+        {% if not filmsheets %}
+            <a href='/media/link/filmsheet/{{ media.pk }}'>(+)</a><ul>
+        {% else %}
+            <ul>
+            {% for filmsheet in filmsheets %}
+            <li>{{ filmsheet }}</li>
+            {% endfor %}
+        {% endif %}
     </ul></td></tr>
     {% endif %}
     <tr><td>
