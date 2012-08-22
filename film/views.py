@@ -140,8 +140,8 @@ def incamera_develop(request, life_id):
         context_instance=RequestContext(request, {
             'life': life,
             'contacts': contacts,
-            'products': Product.objects.all(),
-            'product_len': Product.objects.count() + 1,
+            'products': Product.objects.filter(done=False),
+            'product_len': Product.objects.filter(done=False).count(),
             'sensitivities': Sensitivity.objects.all(),
     }))
 
