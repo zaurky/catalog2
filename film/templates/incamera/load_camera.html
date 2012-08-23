@@ -14,7 +14,7 @@
         <tr>
           <td>{{ camera_catalog }}</td>
           {% if not camera_catalog.loaded %}
-          <td><a href="/film/incamera/load/{{ camera_catalog.pk }}/film/{{ life.pk }}">load</a></td>
+          <td><a href="/film/incamera/load/{{ camera_catalog.pk }}/film/{{ life.pk }}" class='load icon'></a></td>
           {% else %}
           <td></td>
           {% endif %}

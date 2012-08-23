@@ -3,7 +3,7 @@
 {% block title %}camera info : {{ catalog.camera_model }}{% endblock %}
 
 {% block content %}
-<h1>{{ catalog.camera_model }}</h1>
+<h1>{{ catalog.camera_model }} <a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a></h1>
 
 <hr/>
 
@@ -55,9 +55,4 @@
 {% endif %}
 
 <hr/>
-
-<br/>
-<br/>
-
-<a href='/admin/camera/catalog/{{ catalog.pk }}'><img src='/static/icons/edit.png'/> edit this camera</a>
 {% endblock %}

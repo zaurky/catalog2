@@ -10,11 +10,11 @@
         <tr>
           <td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
 	  {% if catalog.loaded %}
-          <td><a href="/film/incamera/unload/camera/{{ catalog.pk }}">unload</a></td>
+          <td><a href="/film/incamera/unload/camera/{{ catalog.pk }}" class='unload icon'></a></td>
           {% else %}
-          <td><a href="/film/incamera/load/camera/{{ catalog.pk }}">load</a></td>
+          <td><a href="/film/incamera/load/camera/{{ catalog.pk }}" class='load icon'></a></td>
           {% endif %}
-          <td><a href='/admin/camera/catalog/{{ catalog.pk }}'><img src='/static/icons/edit.png' alt='edit'/></a></td>
+          <td><a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
         </tr>
     {% endfor %}
     </table>

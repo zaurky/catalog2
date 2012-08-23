@@ -3,7 +3,7 @@
 {% block title %}film info : {{ catalog.film_ref }}{% endblock %}
 
 {% block content %}
-<h1>{{ catalog.film_ref }}</h1>
+<h1>{{ catalog.film_ref }} <a href="/admin/film/catalog/{{ catalog.pk }}" class='edit icon'></a></h1>
 
 <hr/>
 
@@ -26,18 +26,22 @@
         <tr><th>Life</th><th>Actions</th></tr>
     {% for life in filmlife %}
 	<tr>
-            <td><a href="/film/life/{{ life.id }}">{{ life }}</a></td>
+            <td><a href="/film/life/{{ life.id }}">{{ life }}
+            {% if life.loaded %}
+            in {{ life.loaded.camera_catalog }}
+            {% endif %}
+            </a></td>
             <td>
             {% if life.developed %}
                 <a href="/"></a>
             {% else %}
             {% if life.unloaded %}
-                <a href="/film/incamera/develop/{{ life.id }}">devel</a>
+                <a href="/film/incamera/develop/{{ life.id }}" class='develop icon'></a>
             {% else %}
             {% if life.loaded %}
-                <a href="/film/incamera/unload/life/{{ life.id }}">unload from {{ life.loaded.camera_catalog }}</a>
+                <a href="/film/incamera/unload/life/{{ life.id }}" class='unload icon'></a>
             {% else %}
-                <a href="/film/incamera/load/life/{{ life.id }}">load</a>
+                <a href="/film/incamera/load/life/{{ life.id }}" class='load icon'></a>
             {% endif %}
             {% endif %}
             {% endif %}
@@ -48,11 +52,6 @@
 {% else %}
     <p>cette pellicule n'a pas d'instance</p>
 {% endif %}
-
-<br/>
-<br/>
-
-<a href="/admin/film/catalog/{{ catalog.pk }}"><img src='/static/icons/edit.png'/> edit this film</a>
 {% endblock %}
 
 

@@ -204,6 +204,66 @@ td.border_side {
         background: url('/static/icons/film.png') no-repeat;
 }
 
+.plus {
+	display: block;
+        background: url('/static/icons/plus.png') no-repeat;
+}
+
+.info {
+	display: block;
+        background: url('/static/icons/info.png') no-repeat;
+}
+
+.home {
+	display: block;
+        background: url('/static/icons/home.png') no-repeat;
+}
+
+.delete {
+	display: block;
+        background: url('/static/icons/delete.png') no-repeat;
+}
+
+/*.edit {
+	display: block;
+        background: url('/static/icons/edit.png') no-repeat;
+}*/
+
+.edit {
+	display: block;
+        background: url('/static/icons/pencil.png') no-repeat;
+}
+
+.link_ico {
+	display: block;
+        background: url('/static/icons/link.png') no-repeat;
+}
+
+.attach {
+	display: block;
+        background: url('/static/icons/attach.png') no-repeat;
+}
+
+.develop {
+	display: block;
+        background: url('/static/icons/gear.png') no-repeat;
+}
+
+.unload {
+	display: block;
+        background: url('/static/icons/arrow_left.png') no-repeat;
+}
+
+.load {
+	display: block;
+        background: url('/static/icons/arrow_right.png') no-repeat;
+}
+
+.trash {
+	display: block;
+        background: url('/static/icons/trash.png') no-repeat;
+}
+
 .empty {
         display: block;
 }
