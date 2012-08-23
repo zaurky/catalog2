@@ -17,7 +17,7 @@
       {% if not inc.film_life.reference %}
       <td class='border_side'>Loaded</td>
       {% else %}
-      <td class='border_side'><a href='/admin/film/life/{{ inc.film_life.pk }}'>{{ inc.film_life.reference}}</a></td>
+      <td class='border_side'><a href='/film/life/{{ inc.film_life.pk }}'>{{ inc.film_life.reference}}</a></td>
       {% endif %}
       <td><a href='/admin/film/incamera/{{ inc.pk }}'>{{ inc.camera_catalog.camera_model }}</a></td>
       <td>
