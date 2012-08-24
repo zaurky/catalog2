@@ -5,7 +5,7 @@
 {% block content %}
 {% if catalog_list %}
     <table>
-        <tr><th><a href='/admin/camera/catalog/add'>Camera</a></th><th>Action</th></tr>
+        <tr><th><a href='/admin/camera/catalog/add'>Camera</a></th><th colspan='3'>Action</th></tr>
     {% for catalog in catalog_list %}
         <tr>
           <td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
@@ -15,6 +15,9 @@
           <td><a href="/film/incamera/load/camera/{{ catalog.pk }}" class='load icon'></a></td>
           {% endif %}
           <td><a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
+          {% if catalog.num_films %}
+          <td><div class='check icon'>&nbsp;</div></td>
+          {% endif %}
         </tr>
     {% endfor %}
     </table>

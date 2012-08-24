@@ -264,6 +264,11 @@ td.border_side {
         background: url('/static/icons/trash.png') no-repeat;
 }
 
+.check {
+	display: block;
+        background: url('/static/icons/check.png') no-repeat;
+}
+
 .empty {
         display: block;
 }
