@@ -8,6 +8,7 @@ from django.conf import settings
 from catalog2.media.models import *
 from catalog2.camera.models import Catalog
 from catalog2.film.models import Life, InCamera
+from django.http import HttpResponse
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -116,7 +117,7 @@ def do_upload(request):
     media = Media(
         name=request.POST['name'],
         comment=request.POST['comment'],
-        url=os.path.join(settings.UPLOAD_URL, date_path(), file.name),
+        url=os.path.join(date_path(), file.name),
     )
     media.save()
     return render_to_response('media/uploaded.html', {
@@ -139,3 +140,9 @@ def add_tag(request, media_id, tag_id=None):
         'media': media,
         'tags': list(set(Tag.objects.all()) - set(media.tags)),
     })
+
+@login_required
+def display(request, media_id):
+    media = get_object_or_404(Media, pk=media_id)
+    image = open(os.path.join(settings.UPLOAD_PATH, media.url), 'rb')
+    return HttpResponse(image, mimetype='image/jpeg')
