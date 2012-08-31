@@ -8,7 +8,7 @@ from django.conf import settings
 from catalog2.media.models import *
 from catalog2.camera.models import Catalog
 from catalog2.film.models import Life, InCamera
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -144,5 +144,7 @@ def add_tag(request, media_id, tag_id=None):
 @login_required
 def display(request, media_id):
     media = get_object_or_404(Media, pk=media_id)
+    if media.url.startswith('http'):
+        return HttpResponseRedirect(media.url)
     image = open(os.path.join(settings.UPLOAD_PATH, media.url), 'rb')
     return HttpResponse(image, mimetype='image/jpeg')
