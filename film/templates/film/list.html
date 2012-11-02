@@ -6,10 +6,19 @@
 
 {% if catalog_list %}
     <table>
-	<tr><th><a href='/admin/film/catalog/add/'>Films</a></th><th>Action</th></tr>
+	<tr>
+          <th><a href='/admin/film/catalog/add/'>Films</a></th>
+          <th>sensitivity</th>
+          <th>expiration</th>
+          <th>NB</th>
+          <th>Action</th>
+        </tr>
     {% for catalog in catalog_list %}
         <tr>
-          <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
+          <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog.film_ref }}</a></td>
+          <td>{{ catalog.film_sensitivity }}</td>
+          <td>{{  catalog.expiration }}</td>
+          <td>{{ catalog.quantity }}</td>
           <td><a href='/admin/film/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
         </tr>
     {% endfor %}
