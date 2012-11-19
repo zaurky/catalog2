@@ -45,7 +45,7 @@ class Media(models.Model):
 
 
 class Camera(models.Model):
-    camera_model = models.ForeignKey(CameraModel, related_name='camera')
+    camera_model = models.ForeignKey(CameraModel, related_name='media')
     media = models.ForeignKey(Media)
 
     def __unicode__(self):

@@ -55,4 +55,14 @@
 {% endif %}
 
 <hr/>
+{% if media %}
+    <table>
+    {% for camera in media %}
+        <tr><td>
+	    <img src='/media/display/{{ camera.pk }}' alt='{{ camera.name }}'/>
+	</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+
 {% endblock %}

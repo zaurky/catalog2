@@ -36,6 +36,7 @@ def catalog_info(request, catalog_id):
         'catalog': catalog,
         'history': history,
         'encyclopedias': catalog.camera_model.encyclopedia,
+        'media': camera.camera_model.media.all(),
     })
 
 @login_required
