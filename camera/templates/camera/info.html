@@ -58,8 +58,8 @@
 {% if media %}
     <table>
     {% for camera in media %}
-        <tr><td>
-	    <img src='/media/display/{{ camera.pk }}' alt='{{ camera.name }}'/>
+        <tr><td align='center'>
+	    <img width='70%' src='/media/display/{{ camera.pk }}' alt='{{ camera.name }}'/>
 	</td></tr>
     {% endfor %}
     </table>
