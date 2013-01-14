@@ -67,6 +67,7 @@ class Catalog(models.Model):
 
     @property
     def remaining(self):
+        #TODO incamera can be '', should filter on that too
         return self.lifes.filter(incamera=None).all()
 
     def __unicode__(self):
@@ -114,7 +115,6 @@ class Life(models.Model):
             incamera = self.incamera.get()
             if not incamera.loaded:
                 return incamera
-        return None
 
     @property
     def loaded(self):
@@ -122,7 +122,6 @@ class Life(models.Model):
             incamera = self.incamera.get()
             if incamera.loaded:
                 return incamera
-        return None
 
     @property
     def developed(self):
@@ -132,7 +131,6 @@ class Life(models.Model):
     def filmsheet(self):
         if self.filmsheet_set.count():
             return self.filmsheet_set.all()[0].media
-        return None
 
     def load(self):
         self.insertion = datetime.now()
