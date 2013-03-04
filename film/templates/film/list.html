@@ -14,7 +14,7 @@
           <th>Action</th>
         </tr>
     {% for catalog in catalog_list %}
-        <tr>
+        <tr{% if not catalog.remaining|length %} class='nomore'{% endif %}>
           <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog.film_ref }}</a></td>
           <td>{{ catalog.film_sensitivity }}</td>
           <td>{{ catalog.expiration }}</td>
