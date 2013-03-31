@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Lens list{% endblock %}
+
+{% block content %}
+{% if catalog_list %}
+    <table>
+        <tr><th><a href='/admin/lens/catalog/add'>Lens</a></th><th colspan='1'>Action</th></tr>
+    {% for catalog in catalog_list %}
+        <tr>
+          <td><a href="/lens/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
+          <td><a href='/admin/lens/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>Aucun objectif n'est disponible.</p>
+{% endif %}
+{% endblock %}

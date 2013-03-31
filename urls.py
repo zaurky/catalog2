@@ -94,4 +94,7 @@ urlpatterns = patterns('',
         'catalog2.media.views.add_tag'),
     url(r'^media/display/(?P<media_id>\d+)/?$',
         'catalog2.media.views.display'),
+
+    # lens
+    url(r'^lens/catalog/?$', 'catalog2.lens.views.catalog_list'),
 )
