@@ -12,6 +12,9 @@ class LensMount(models.Model):
     def lenses(self):
         return Catalog.objects.filter(mount=self)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=255)
@@ -51,8 +54,13 @@ class Catalog(models.Model):
 
     mount = models.ForeignKey(LensMount)
 
+    @classmethod
+    def total_sum(cls):
+        return cls.objects.aggregate(Sum('price'))['price__sum']
+
     def __unicode__(self):
         label = unicode(self.lense_model)
         label += " : %s" % self.sn if self.sn else ''
         label += " (%s)" % self.comment if self.comment else ''
+        label += " [%s]" % self.mount if self.mount else ''
         return label
