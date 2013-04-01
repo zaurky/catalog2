@@ -57,7 +57,9 @@ class Catalog(models.Model):
     sell_price = models.IntegerField(default=0)
     sell_reason = models.CharField(max_length=1024)
     sell_date = models.DateTimeField(null=True, blank=True)
-    mount = models.ForeignKey(LensMount, related_name='camera')
+    mount = models.ForeignKey(LensMount, related_name='camera',
+        null=True, blank=True)
+    fixed_lens = models.BooleanField()
 
     @property
     def loaded(self):
