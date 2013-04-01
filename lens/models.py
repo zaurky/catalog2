@@ -52,7 +52,7 @@ class Catalog(models.Model):
     sn = models.CharField(max_length=255, null=True, blank=True)
     comment = models.CharField(max_length=1024, null=True, blank=True)
 
-    mount = models.ForeignKey(LensMount)
+    mount = models.ForeignKey(LensMount, related_name='lens')
 
     @classmethod
     def total_sum(cls):
