@@ -87,14 +87,24 @@ def get_handle():
     return uuid.uuid1().hex
 
 
+class DevelopProcess(models.Model):
+    temperature = models.IntegerField(default=20)
+
+
+class DevelopProcessElements(models.Model):
+    name = models.CharField(max_length=1024)
+    duration = models.IntegerField()
+    process = models.ForeignKey(DevelopProcess, related_name='element')
+
+
 class Life(models.Model):
     film_catalog = models.ForeignKey(Catalog, related_name='lifes')
     shoot_sensitivity = models.ForeignKey(Sensitivity, related_name='shoot',
         null=True, blank=True)
     dev_sensitivity = models.ForeignKey(Sensitivity, related_name='dev',
         null=True, blank=True)
-    developer = models.ForeignKey(Developer,
-        null=True, blank=True)
+    developer = models.ForeignKey(Developer, null=True, blank=True)
+    dev_process = models.ForeignKey(DevelopProcess, null=True, blank=True)
 
     handle = models.CharField(max_length=32, default=get_handle)
     insertion = models.DateTimeField(default=None, null=True, blank=True)
