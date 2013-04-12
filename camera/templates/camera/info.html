@@ -3,7 +3,15 @@
 {% block title %}camera info : {{ catalog.camera_model }}{% endblock %}
 
 {% block content %}
-<h1>{{ catalog.camera_model }} <a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a></h1>
+<h1>{{ catalog.camera_model }}
+    <a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a>
+    {% if not catalog.gotit %}
+    {% elif catalog.sell_price %}
+	<a href='/camera/catalog/sold/{{ catalog.pk }}' class='sell icon'></a>
+    {% else %}
+	<a href='/camera/catalog/sell/{{ catalog.pk }}' class='sell icon'></a>
+    {% endif %}
+</h1>
 
 <hr/>
 
@@ -33,6 +41,13 @@
     <tr><td colspan='2'><a href='{{ e.value }}'>{{ e.value }}</a></td></tr>
         {% endif %}
     {% endfor %}
+
+    {% if not catalog.gotit %}
+	<tr><td>sold for </td><td>{{ catalog.sell_price }}</td></tr>
+	<tr><td>sold the </td><td>{{ catalog.sell_date }}</td></tr>
+    {% else %}
+	<tr><td>trying to sell for </td><td>{{ catalog.sell_price }}</td></tr>
+    {% endif %}
 
 </table>
 

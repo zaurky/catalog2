@@ -9,12 +9,15 @@
     {% for catalog in catalog_list %}
         <tr>
           <td><a href="/camera/catalog/{{ catalog.pk }}">{{ catalog }}</a></td>
-	  {% if catalog.loaded %}
-          <td><a href="/film/incamera/unload/camera/{{ catalog.pk }}" class='unload icon'></a></td>
-          {% else %}
-          <td><a href="/film/incamera/load/camera/{{ catalog.pk }}" class='load icon'></a></td>
-          {% endif %}
+	  {% if not catalog.gotit %}
+	  {% else %}
+	    {% if catalog.loaded %}
+              <td><a href="/film/incamera/unload/camera/{{ catalog.pk }}" class='unload icon'></a></td>
+	    {% else %}
+	      <td><a href="/film/incamera/load/camera/{{ catalog.pk }}" class='load icon'></a></td>
+	    {% endif %}
           <td><a href='/admin/camera/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
+	  {% endif %}
           {% if catalog.num_films %}
           <td><div class='check icon'>&nbsp;</div></td>
           {% endif %}
