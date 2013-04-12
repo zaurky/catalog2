@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}sell the camera : {{ catalog }}{% endblock %}
+
+{% block content %}
+<h1>sell the camera : {{ catalog }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/camera/catalog/selling" method="post">{% csrf_token %}
+<input type='hidden' name='catalog_id' id='catalog_id' value='{{ catalog.id }}'/>
+<table>
+    <tr><td>{{ catalog }} put in sales for </td><td>
+       <input type='text' name='price' id='price'/> &euro;
+    </td></tr>
+    <tr><td colspan='2'>
+	<textarea name='comment' id='comment' rows="10" cols="80"></textarea>
+    </td></tr>
+    <tr><td colspan='2'><input type="submit" value="Ok" /></td></tr>
+</table>
+</form>
+{% endblock %}

@@ -29,6 +29,13 @@ urlpatterns = patterns('',
     url(r'^camera/catalog/(?P<catalog_id>\d+)/update/?$',
         'catalog2.camera.views.catalog_update'),
 
+    url(r'^camera/catalog/sell/(?P<catalog_id>\d+)/?$',
+        'catalog2.camera.views.catalog_sell'),
+    url(r'^camera/catalog/selling/?$',
+        'catalog2.camera.views.catalog_selling'),
+    url(r'^camera/catalog/sold/(?P<catalog_id>\d+)/?$',
+        'catalog2.camera.views.catalog_sold'),
+
     # films
     url(r'^film/catalog/?$', 'catalog2.film.views.catalog_list'),
     url(r'^film/catalog/(?P<catalog_id>\d+)/?$',
