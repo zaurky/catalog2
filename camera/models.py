@@ -47,6 +47,16 @@ class Catalog(models.Model):
     sn = models.CharField(max_length=255, null=True, blank=True)
     comment = models.CharField(max_length=1024, null=True, blank=True)
 
+    STATUS_CHOICE = (
+        ('o', 'own'),
+        ('g', 'selling'),
+        ('s', 'sold'),
+    )
+    status = models.CharField(max_length=1, choices=STATUS_CHOICE, default='o')
+    sell_price = models.IntegerField(default=0)
+    sell_reason = models.CharField(max_length=1024)
+    sell_date = models.DateTimeField(null=True, blank=True)
+
     @property
     def loaded(self):
         return (self.incamera.filter(loaded=True).all() or [None])[0]
@@ -55,9 +65,22 @@ class Catalog(models.Model):
     def num_films(self):
         return self.incamera.count()
 
+    @property
+    def gotit(self):
+        return self.sell_date is None
+
     @classmethod
     def total_sum(cls):
         return cls.objects.aggregate(Sum('price'))['price__sum']
+
+    def selling(self, price, comment):
+        self.sell_price = price
+        self.sell_reason = comment
+        self.status = 'g'
+
+    def sold(self):
+        self.sell_date = datetime.now()
+        self.status = 's'
 
     def __unicode__(self):
         label = unicode(self.camera_model)
