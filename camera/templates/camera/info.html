@@ -55,7 +55,10 @@
 {% if catalog.loaded %}
     <a href='/film/life/{{ catalog.loaded.film_life.pk }}'>{{ catalog.loaded.film_life }}</a> <a href="/film/incamera/unload/camera/{{ catalog.pk }}">(unload)</a>
 {% else %}
-    <p>cet appareil est vide <a href="/film/incamera/load/camera/{{ catalog.pk }}">(load)</a></p>
+    {% if catalog.gotit %}
+        <p>cet appareil est vide
+        <a href="/film/incamera/load/camera/{{ catalog.pk }}">(load)</a></p>
+    {% endif %}
 {% endif %}
 
 <hr/>
