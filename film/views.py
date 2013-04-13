@@ -84,7 +84,7 @@ def incamera_camera_unload(request, camera_catalog_id):
 @login_required
 def incamera_film_load(request, life_id):
     life = get_object_or_404(Life, pk=life_id)
-    camera_catalogs = CameraCatalog.objects.filter(sell_date=None))
+    camera_catalogs = CameraCatalog.objects.filter(sell_date=None)
     return render_to_response('incamera/load_camera.html', {
         'life': life,
         'camera_catalogs': camera_catalogs,
