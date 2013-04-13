@@ -45,7 +45,7 @@
     {% if not catalog.gotit %}
 	<tr><td>sold for </td><td>{{ catalog.sell_price }}</td></tr>
 	<tr><td>sold the </td><td>{{ catalog.sell_date }}</td></tr>
-    {% else %}
+    {% elif catalog.sell_price %}
 	<tr><td>trying to sell for </td><td>{{ catalog.sell_price }}</td></tr>
     {% endif %}
 
