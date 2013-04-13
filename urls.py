@@ -97,4 +97,6 @@ urlpatterns = patterns('',
 
     # lens
     url(r'^lens/catalog/?$', 'catalog2.lens.views.catalog_list'),
+    url(r'^lens/catalog/(?P<lens_id>\d+)/?$', 'catalog2.lens.views.catalog_info'),
+
 )

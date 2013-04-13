@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}lens info : {{ catalog.lens_model }}{% endblock %}
+
+{% block content %}
+<h1>{{ catalog.lens_model }}</h1>
+
+<table>
+    <tr><td>date</td><td>{{ catalog.date }}</td></tr>
+    {% if catalog.is_borrowed %}
+        <tr><td>borrowed</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+    {% if catalog.given %}
+        <tr><td>given by</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+    {% if catalog.gift %}
+        <tr><td>gift by</td><td>{{ catalog.who }}</td></tr>
+    {% endif %}
+
+    <tr><td>working</td><td>{{ catalog.working }}</td></tr>
+    <tr><td>price</td><td>{{ catalog.price }}</td></tr>
+    <tr><td>serial number</td><td>{{ catalog.sn }}</td></tr>
+    <tr><td>mount</td><td>{{ catalog.mount }}</td></tr>
+    <tr><td>comment</td><td>{{ catalog.comment }}</td></tr>
+
+    {% if not catalog.gotit %}
+	<tr><td>sold for </td><td>{{ catalog.sell_price }}</td></tr>
+	<tr><td>sold the </td><td>{{ catalog.sell_date }}</td></tr>
+    {% elif catalog.sell_price %}
+	<tr><td>trying to sell for </td><td>{{ catalog.sell_price }}</td></tr>
+    {% endif %}
+
+</table>
+{% endblock %}
