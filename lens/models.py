@@ -24,15 +24,15 @@ class Brand(models.Model):
 
 
 class Model(models.Model):
-    lense_brand = models.ForeignKey(Brand)
+    lens_brand = models.ForeignKey(Brand)
     name = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return "%s %s" % (self.lense_brand, self.name)
+        return "%s %s" % (self.lens_brand, self.name)
 
 
 class Catalog(models.Model):
-    lense_model = models.ForeignKey(Model)
+    lens_model = models.ForeignKey(Model)
     who = models.ForeignKey(Contact, default=6, related_name='lens')
 
     date = models.DateTimeField(default=datetime.now)
@@ -59,7 +59,7 @@ class Catalog(models.Model):
         return cls.objects.aggregate(Sum('price'))['price__sum']
 
     def __unicode__(self):
-        label = unicode(self.lense_model)
+        label = unicode(self.lens_model)
         label += " : %s" % self.sn if self.sn else ''
         label += " (%s)" % self.comment if self.comment else ''
         label += " [%s]" % self.mount if self.mount else ''
