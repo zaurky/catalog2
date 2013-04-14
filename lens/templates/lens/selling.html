@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}selling {{ catalog }}{% endblock %}
+
+{% block content %}
+<a href='/lens/catalog/{{ catalog.pk }}'>{{ catalog }}</a><br/>
+put in sale for {{ catalog.sell_price }}
+{% endblock %}
