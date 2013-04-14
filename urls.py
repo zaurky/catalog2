@@ -99,4 +99,10 @@ urlpatterns = patterns('',
     url(r'^lens/catalog/?$', 'catalog2.lens.views.catalog_list'),
     url(r'^lens/catalog/(?P<lens_id>\d+)/?$', 'catalog2.lens.views.catalog_info'),
 
+    url(r'^lens/catalog/sell/(?P<catalog_id>\d+)/?$',
+        'catalog2.lens.views.catalog_sell'),
+    url(r'^lens/catalog/selling/?$',
+        'catalog2.lens.views.catalog_selling'),
+    url(r'^lens/catalog/sold/(?P<catalog_id>\d+)/?$',
+        'catalog2.lens.views.catalog_sold'),
 )
