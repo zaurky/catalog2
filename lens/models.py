@@ -52,7 +52,30 @@ class Catalog(models.Model):
     sn = models.CharField(max_length=255, null=True, blank=True)
     comment = models.CharField(max_length=1024, null=True, blank=True)
 
+    STATUS_CHOICE = (
+        ('o', 'own'),
+        ('g', 'selling'),
+        ('s', 'sold'),
+    )
+    status = models.CharField(max_length=1, choices=STATUS_CHOICE, default='o')
+    sell_price = models.IntegerField(default=0, null=True, blank=True)
+    sell_reason = models.CharField(max_length=1024, null=True, blank=True)
+    sell_date = models.DateTimeField(null=True, blank=True)
+
     mount = models.ForeignKey(LensMount, related_name='lens')
+
+    @property
+    def gotit(self):
+        return self.sell_date is None
+
+    def selling(self, price, comment):
+        self.sell_price = price
+        self.sell_reason = comment
+        self.status = 'g'
+
+    def sold(self):
+        self.sell_date = datetime.now()
+        self.status = 's'
 
     @classmethod
     def total_sum(cls):
