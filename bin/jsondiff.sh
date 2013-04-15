@@ -22,9 +22,9 @@ for line in lines:
     if line.startswith('---') or line.startswith('+++'):
         continue
     elif line.startswith('-'):
-        before.append(line.replace('-', ''))
+        before.append(line.replace('-', '', 1))
     elif line.startswith('+'):
-        after.append(line.replace('+', ''))
+        after.append(line.replace('+', '', 1))
 
 import simplejson as json
 
