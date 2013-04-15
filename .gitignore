@@ -2,7 +2,7 @@
 *.pyc
 *.swp
 *.bkp
-catalog2.sqlite3
+catalog2.sqlite3*
 camera/static/icons
 static/icons
 static/img
