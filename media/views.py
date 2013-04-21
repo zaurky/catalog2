@@ -117,6 +117,7 @@ def do_upload(request):
     media = Media(
         name=request.POST['name'],
         comment=request.POST['comment'],
+        safe=request.POST.get('safe', False),
         url=os.path.join(date_path(), file.name),
     )
     media.save()
@@ -144,6 +145,8 @@ def add_tag(request, media_id, tag_id=None):
 @login_required
 def display(request, media_id):
     media = get_object_or_404(Media, pk=media_id)
+    if not media.safe:
+        return HttpResponseRedirect('/media/')
     if media.url.startswith('http'):
         return HttpResponseRedirect(media.url)
     image = open(os.path.join(settings.UPLOAD_PATH, media.url), 'rb')

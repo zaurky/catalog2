@@ -20,6 +20,8 @@ class Media(models.Model):
     comment = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
+    safe = models.BooleanField(default=True, blank=True)
+
     @property
     def tags(self):
         return self.tag.all()

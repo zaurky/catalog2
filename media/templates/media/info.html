@@ -15,13 +15,13 @@
 
 <hr/>
 <table>
-    <tr><td>{{ media.name }}</td></tr>
+    <tr><td>{{ media.name }}{% if not media.safe %} [NS]{% endif %}</td></tr>
     <tr><td>{{ media.comment }}</td></tr>
     <tr><td>Tag list : <a href='/media/tag/add/{{ media.pk }}'>(+)</a>
         {% for tag in media.tags %}{{ tag }}, {%endfor %}
     </td></tr>
     {% if not exemples and not filmsheets %}
-    <tr><td>Photo of : 
+    <tr><td>Photo of :
         {% if not cameras %}
             <a href='/media/link/camera/{{ media.pk }}'>(+)</a><ul>
         {% else %}
