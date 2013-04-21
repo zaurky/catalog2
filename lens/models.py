@@ -26,9 +26,12 @@ class Brand(models.Model):
 class Model(models.Model):
     lens_brand = models.ForeignKey(Brand)
     name = models.CharField(max_length=255)
+    mount = models.ForeignKey(LensMount, related_name='lens')
 
     def __unicode__(self):
-        return "%s %s" % (self.lens_brand, self.name)
+        label = "%s %s" % (self.lens_brand, self.name)
+        label += " [%s]" % self.mount if self.mount else ''
+        return label
 
 
 class Catalog(models.Model):
@@ -62,8 +65,6 @@ class Catalog(models.Model):
     sell_reason = models.CharField(max_length=1024, null=True, blank=True)
     sell_date = models.DateTimeField(null=True, blank=True)
 
-    mount = models.ForeignKey(LensMount, related_name='lens')
-
     @property
     def gotit(self):
         return self.sell_date is None
@@ -85,5 +86,4 @@ class Catalog(models.Model):
         label = unicode(self.lens_model)
         label += " : %s" % self.sn if self.sn else ''
         label += " (%s)" % self.comment if self.comment else ''
-        label += " [%s]" % self.mount if self.mount else ''
         return label
