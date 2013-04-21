@@ -54,8 +54,8 @@ class Catalog(models.Model):
         ('s', 'sold'),
     )
     status = models.CharField(max_length=1, choices=STATUS_CHOICE, default='o')
-    sell_price = models.IntegerField(default=0)
-    sell_reason = models.CharField(max_length=1024)
+    sell_price = models.IntegerField(default=0, null=True, blank=True)
+    sell_reason = models.CharField(max_length=1024, null=True, blank=True)
     sell_date = models.DateTimeField(null=True, blank=True)
     mount = models.ForeignKey(LensMount, related_name='camera',
         null=True, blank=True)
