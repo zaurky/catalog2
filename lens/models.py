@@ -80,7 +80,7 @@ class Catalog(models.Model):
 
     @classmethod
     def total_sum(cls):
-        return cls.objects.aggregate(Sum('price'))['price__sum']
+        return cls.objects.aggregate(Sum('price'))['price__sum'] or 0
 
     def __unicode__(self):
         label = unicode(self.lens_model)
