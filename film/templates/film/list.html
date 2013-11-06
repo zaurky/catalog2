@@ -14,10 +14,10 @@
           <th>Action</th>
         </tr>
     {% for catalog in catalog_list %}
-        <tr{% if not catalog.remaining|length %} class='nomore'{% endif %}>
+        <tr class='{% if not catalog.remaining|length %}nomore{% elif catalog.expired %}expired{% endif %}'>
           <td><a href="/film/catalog/{{ catalog.pk }}">{{ catalog.film_ref }}</a></td>
           <td>{{ catalog.film_sensitivity }}</td>
-          <td>{{ catalog.expiration }}</td>
+          <td name='expiration'>{{ catalog.expiration }}</td>
           <td>{{ catalog.remaining|length }}</td>
           <td><a href='/admin/film/catalog/{{ catalog.pk }}' class='edit icon'></a></td>
         </tr>

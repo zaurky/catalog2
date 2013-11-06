@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, date
 
 from django.db import models
 from catalog2.contact.models import Developer
@@ -70,6 +70,10 @@ class Catalog(models.Model):
         #TODO incamera can be '', should filter on that too
         return self.lifes.filter(incamera=None).all()
 
+    @property
+    def expired(self):
+        return self.expiration < date.today()
+
     def __unicode__(self):
         return "%s (%s %s) [%s]" % (
             self.film_ref, self.film_sensitivity, self.expiration, len(self.remaining) or 'X')
@@ -82,6 +86,7 @@ class Catalog(models.Model):
                 l = Life(film_catalog=self)
                 l.save()
         return ret
+
 
 def get_handle():
     return uuid.uuid1().hex

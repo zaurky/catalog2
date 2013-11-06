@@ -291,3 +291,6 @@ td.border_side {
 .nomore {
 	color: #555;
 }
+.expired {
+        background-color: #331111;
+}
