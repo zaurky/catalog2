@@ -120,9 +120,12 @@ class Life(models.Model):
 
     @classmethod
     def next_reference(cls):
-        return "%04d" % (
-            int(Life.objects.filter(reference__isnull=False).order_by('-reference')[0].reference)
-            + 1)
+        last_live = Life.objects.filter(reference__isnull=False
+                                        ).order_by('-reference')
+        if not last_live:
+            return "%04d" % 1
+
+        return "%04d" % (int(last_live[0].reference) + 1)
 
     @property
     def unloaded(self):
